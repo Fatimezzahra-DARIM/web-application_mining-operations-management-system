@@ -26,3 +26,12 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::get('/admin', function () {
+    return view('template/adminDashboard/layout/index');
+})->name('admin');
+
+Route::get('/admin/dashboard', function () {
+    return view('template/adminDashboard/contents/dashboard');
+})->name('admin_dashboard');
