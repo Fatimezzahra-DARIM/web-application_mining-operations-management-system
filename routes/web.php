@@ -35,3 +35,9 @@ Route::get('/admin', function () {
 Route::get('/admin/dashboard', function () {
     return view('template/adminDashboard/contents/dashboard');
 })->name('admin_dashboard');
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::post('/geologists', [GeologistController::class, 'createGeologist'])->name('geologists.create');
+    Route::get('/geologists/{id}', [GeologistController::class, 'readGeologist'])->name('geologists.read');
+    Route::put('/geologists/{id}', [GeologistController::class, 'updateGeologist'])->name('geologists.update');
+    Route::delete('/geologists/{id}', [GeologistController::class, 'deleteGeologist'])->name('geologists.delete');
+});
