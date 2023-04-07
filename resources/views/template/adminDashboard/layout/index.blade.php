@@ -21,5 +21,6 @@
     </div>
 
     <h1>hello</h1>
+    @include('.template.adminDashboard.layout.footer')
 </body>
 </html>
