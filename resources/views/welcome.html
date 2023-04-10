@@ -9,6 +9,12 @@
     
     <!-- CDN flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
+    <!-- icon CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-2E3W8nX4fz4g4vjvCVe58Gn8B/dl5m5NNlou2x5c5q5P4XJ0+4O4zvR1W0ROpGtN1gNohpZvGLdW30fI2tOYkg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- ////////////////// -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <style>
         @import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
@@ -216,17 +222,15 @@ body {
 </head>
 <body class=" bg-orange-200"  >
     <nav class="bg-white border-gray-200 dark:bg-zinc-700 ">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="#" class="flex items-center">
+        <div class="max-w-screen-xl flex  items-center justify-between p-4">
+            <a href="#" class="flex justify-start items-center">
                 <img src="/public/images/new/MMLogo.png" class="h-14 mr-3 rounded-lg" alt="Flowbite Logo" />
-                <h4 class="text-center mb-4 text-1xl font-extrabold text-gray-900 dark:text-white md:text-2xl lg:text-2xl"><span
+                <h4 class="text-center whitespace-nowrap mb-4 text-1xl font-extrabold text-gray-900 dark:text-white md:text-2xl lg:text-2xl"><span
                         class="text-transparent bg-clip-text bg-gradient-to-r to-amber-500 from-amber-50">Mining In Morocco</span></h4>
                 <!-- <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Mining In Morocco</span> -->
             </a>
             <div class="flex md:order-2">
-                <button type="button"
-                    class="text-orange-200 bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-600">Get
-                    started</button>
+               
                 <button data-collapse-toggle="navbar-cta" type="button"
                     class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     aria-controls="navbar-cta" aria-expanded="false">
@@ -239,26 +243,18 @@ body {
                     </svg>
                 </button>
             </div>
-            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+            <div class=" hidden w-full md:flex md:order-1 justify-end items-center" id="navbar-cta">
                 <ul
                     class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-zinc-700 md:dark:bg-zinc-700 dark:border-zinc-700">
                     <li>
                         <a href="#"
-                            class="block py-2 pl-3 pr-4 text-orange-200 bg-orange-500 rounded md:bg-transparent md:text-orange-100 md:p-0 md:dark:text-orange-100"
-                            aria-current="page">Home</a>
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-100 md:p-0 md:dark:hover:text-orange-100 dark:text-orange-200 dark:hover:bg-gray-700 dark:hover:text-orange-200 md:dark:hover:bg-transparent dark:border-gray-700">Sign In</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-100 md:p-0 md:dark:hover:text-orange-100 dark:text-orange-200 dark:hover:bg-gray-700 dark:hover:text-orange-200 md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-100 md:p-0 md:dark:hover:text-orange-100 dark:text-orange-200 dark:hover:bg-gray-700 dark:hover:text-orange-200 md:dark:hover:bg-transparent dark:border-gray-700">Sign Up</a>
                     </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-100 md:p-0 md:dark:hover:text-orange-100 dark:text-orange-200 dark:hover:bg-gray-700 dark:hover:text-orange-200 md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-100 md:p-0 md:dark:hover:text-orange-100 dark:text-orange-200 dark:hover:bg-gray-700 dark:hover:text-orange-200 md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-                    </li>
+                   
                 </ul>
             </div>
         </div>
@@ -270,27 +266,27 @@ body {
         <!-- Carousel wrapper -->
         <div class="relative h-56 overflow-hidden  md:h-80">
             <!-- Item 1 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <div class="hidden duration-700 h-56  ease-in-out" data-carousel-item>
                 <img src="/public/images/7.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
             <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <div class="hidden duration-700 h-56  ease-in-out" data-carousel-item>
                 <img src="/public/images/2.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
             <!-- Item 3 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <div class="hidden duration-700 h-56  ease-in-out" data-carousel-item>
                 <img src="/public/images/6.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
             <!-- Item 4 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <div class="hidden duration-700 h-56  ease-in-out" data-carousel-item>
                 <img src="/public/images/4.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
             <!-- Item 5 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <div class="hidden duration-700 h-56  ease-in-out" data-carousel-item>
                 <img src="/public/images/5.jpg"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
@@ -370,38 +366,30 @@ body {
                 <!-- </a> -->
                 <p class="text-orange-200 dark:text-orange-300 flex justify-center items-center text-2xl italic ">Unearthing the wealth of Morocco's earth, with integrity and expertise.</p>
             </div>
-            
-             <!-- <figcaption class="absolute px-4 text-lg text-white bottom-6">
-                <p>Do you want to get notified when a new component is added to Flowbite?</p>
-            </figcaption> -->
-            <!-- class="w-full h-auto max-w-xl rounded-lg" -->
         </figure>
     
         </div>
-<!--         
-    <div class="flex justify-center " style="background-color: #f3f5f2;">
-        <img srcset="/public/images/new/ourValues.png" class="rounded-lg my-5" width="400px" height="200px" alt="our Values">
-    </div> -->
-  
-        <!-- <p class="text-lg font-medium">
-            <span class="text-primary" style="background-color: yellow;">Lorem</span> ipsum dolor sit amet
-        </p> -->
-<div class="max-w-sm mt-6 rounded-lg mx-3  shadow dark:bg-zinc-700 dark:border-zinc-700">
+
+<h1 class="text-4xl font-bold tracking-tight text-center text-gray-900 dark:text-zinc-700">Our Products</h1>
+
+
+<div class="flex flex-wrap justify-center">
+<div class="max-w-sm w-80 mt-6  mx-3  shadow dark:bg-zinc-700 dark:border-zinc-700">
 <div id="controls-carousel" class="relative w-full" data-carousel="static">
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
         <!-- Item 1 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto ease-in-out" data-carousel-item>
             <img src="../../public/images/new/fluorite1.jpg"
                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
         <!-- Item 2 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+        <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto ease-in-out" data-carousel-item="active">
             <img src="../../public/images/new/fluorite2.jpg"
                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
         <!-- Item 3 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto ease-in-out" data-carousel-item>
             <img src="../../public/images/new/fluorite3.jpg"
                 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
@@ -438,15 +426,340 @@ body {
         <a href="#">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Fluorite</h5>
         </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-            acquisitions of 2021 so far, in reverse chronological order.</p>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Fluorite is used to make glass, glass fibres and ceramic enamel.
+        Fluorite is present in microscopes,telescopes and spectrographs.
+        Metallurgical Fluorite increases the strength of cement and stops it from cracking.</p>
         
     </div>
 </div>
+<!-- ///////////////////////////////////////////// -->
+<div class="max-w-sm mt-6 w-80 mx-3  shadow dark:bg-zinc-700 dark:border-zinc-700">
+  <div id="controls-carousel" class="relative w-full" data-carousel="static">
+    <!-- Carousel wrapper -->
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <!-- Item 1 -->
+      <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto  ease-in-out" data-carousel-item>
+        <img src="../../public/images/new/cobalt1.jpg"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+      <!-- Item 2 -->
+      <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto  ease-in-out" data-carousel-item="active">
+        <img src="../../public/images/new/cobalt2.jpg"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+      
+    </div>
+    <!-- Slider controls -->
+    <button type="button"
+      class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      data-carousel-prev>
+      <span
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        <span class="sr-only">Previous</span>
+      </span>
+    </button>
+    <button type="button"
+      class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      data-carousel-next>
+      <span
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <span class="sr-only">Next</span>
+      </span>
+    </button>
+  </div>
 
 
+  <div class="p-5">
+    <a href="#">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Cobalt</h5>
+    </a>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Electrical batteries and super-alloys. Cobalt is malleable, ductile and ferromagnetic at high temperatures, making it a key element in the production of
+    electrical batteries, notably for the new technologies and electric vehicles market, which is enjoying significant
+    growth.</p>
+
+  </div>
+</div>
+<!-- ////////////////////////////// -->
+<div class="max-w-sm mt-6 w-80 mx-3  shadow dark:bg-zinc-700 dark:border-zinc-700">
+  <div id="controls-carousel" class="relative w-full" data-carousel="static">
+    <!-- Carousel wrapper -->
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <!-- Item 1 -->
+      <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto ease-in-out" data-carousel-item>
+        <img src="../../public/images/new/phosphate1.jpg"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+      <!-- Item 2 -->
+      <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto ease-in-out" data-carousel-item="active">
+        <img src="../../public/images/new/phosphate2.jpg"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+      <!-- Item 3 -->
+      <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto ease-in-out" data-carousel-item="active">
+        <img src="../../public/images/new/phosphate3.webp"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+    </div>
+    <!-- Slider controls -->
+    <button type="button"
+      class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      data-carousel-prev>
+      <span
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        <span class="sr-only">Previous</span>
+      </span>
+    </button>
+    <button type="button"
+      class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      data-carousel-next>
+      <span
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <span class="sr-only">Next</span>
+      </span>
+    </button>
+  </div>
 
 
+  <div class="p-5">
+    <a href="#">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Phosphate</h5>
+    </a>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Phosphate rock is processed to produce phosphorous, which is one of the three main nutrients most commonly used in
+    fertilizers (the other two are nitrogen and potassium). Phosphate can also be turned into phosphoric acid, which is used
+    in everything from food and cosmetics to animal feed and electronics.</p>
+
+  </div>
+</div>
+<!-- /////////////////// -->
+<div class="max-w-sm mt-6 w-80 mx-3  shadow dark:bg-zinc-700 dark:border-zinc-700">
+  <div id="controls-carousel" class="relative w-full" data-carousel="static">
+    <!-- Carousel wrapper -->
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <!-- Item 1 -->
+      <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto ease-in-out" data-carousel-item>
+        <img src="../../public/images/new/Silver.png"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+      <!-- Item 2 -->
+      <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto ease-in-out" data-carousel-item="active">
+        <img src="../../public/images/new/silver2.jpg"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+  
+    </div>
+    <!-- Slider controls -->
+    <button type="button"
+      class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      data-carousel-prev>
+      <span
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        <span class="sr-only">Previous</span>
+      </span>
+    </button>
+    <button type="button"
+      class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      data-carousel-next>
+      <span
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <span class="sr-only">Next</span>
+      </span>
+    </button>
+  </div>
+
+
+  <div class="p-5">
+    <a href="#">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Silver</h5>
+    </a>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Silver is an important component in the manufacture of photovoltaic panels.Light sensitivity makes Silver a necessary element in the production of solar energy. Silver is used in ornamentation and jewellery, where it is used as a plating metal Silver is used in the manufacture of
+    musical instruments Silver can be found in our daily lives: domestic appliances, food packaging, water purifiers, etc.</p>
+
+  </div>
+</div>
+<!-- :::::::::::::: -->
+<div class="max-w-sm mt-6 w-80 mx-3  shadow dark:bg-zinc-700 dark:border-zinc-700">
+  <div id="controls-carousel" class="relative w-full" data-carousel="static">
+    <!-- Carousel wrapper -->
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <!-- Item 1 -->
+      <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto ease-in-out" data-carousel-item>
+        <img src="../../public/images/new/coper1.jpg"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+      <!-- Item 2 -->
+      <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto ease-in-out" data-carousel-item="active">
+        <img src="../../public/images/new/coper2.jpg"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+      <!-- Item 3 -->
+      <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto ease-in-out" data-carousel-item>
+        <img src="../../public/images/new/Coper3.PNG"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+    </div>
+    <!-- Slider controls -->
+    <button type="button"
+      class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      data-carousel-prev>
+      <span
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        <span class="sr-only">Previous</span>
+      </span>
+    </button>
+    <button type="button"
+      class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      data-carousel-next>
+      <span
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <span class="sr-only">Next</span>
+      </span>
+    </button>
+  </div>
+
+
+  <div class="p-5">
+    <a href="#">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Coper</h5>
+    </a>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Copper is an excellent conductor of electricity and heat. A mid-size car contains up to 22.5kg of Copper.It is used in the cars electrical and electronic systems: engine, gearbox, braking circuit, sensors, batteries and so
+    on.In the Building sector, copper is used as a watertight and corrosion-resistant roofing material.</p>
+
+  </div>
+</div>
+<!-- /////////////////// -->
+<div class="max-w-sm mt-6 w-80 mx-3  shadow dark:bg-zinc-700 dark:border-zinc-700">
+  <div id="controls-carousel" class="relative w-full" data-carousel="static">
+    <!-- Carousel wrapper -->
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <!-- Item 1 -->
+      <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto ease-in-out" data-carousel-item>
+        <img src="../../public/images/new/gold1.jpg"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+      <!-- Item 2 -->
+      <div class="hidden duration-700 h-56 overflow-hidden justify-center items-center my-auto ease-in-out" data-carousel-item="active">
+        <img src="../../public/images/new/gold2.jpg"
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+    </div>
+    <!-- Slider controls -->
+    <button type="button"
+      class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      data-carousel-prev>
+      <span
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        <span class="sr-only">Previous</span>
+      </span>
+    </button>
+    <button type="button"
+      class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      data-carousel-next>
+      <span
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <span class="sr-only">Next</span>
+      </span>
+    </button>
+  </div>
+
+
+  <div class="p-5">
+    <a href="#">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Gold</h5>
+    </a>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Gold is a chemically inert metal. It is used in the composition of numerous medical devices. Gold is a hypo-allergenic material that is easy to work. It is frequently used for dental care, for example for crowns or fillings Infinitely small quantities of Gold can be found in nearly all electronic components: mobile phone, computer, tablet,navigation system,television, etc..</p>
+
+  </div>
+</div>
+
+</div>
+<!-- ////////Footer////////// -->
+<footer class="bg-zinc-700 text-gray-300  mt-6">
+  <div class="container px-6 py-12 mx-auto">
+    <div class="flex flex-wrap justify-between">
+      <div class="w-full md:w-1/3 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4 dark:text-orange-200 dark:hover:text-orange-200">About Us</h3>
+        <p class="text-sm">Mining company providing essential minerals for global industries.
+        "We specialize in responsible mining practices for a sustainable future"
+        Our mission is to extract valuable resources while prioritizing safety and environmental responsibility. </p>
+      </div>
+      <div class="w-full md:w-1/3 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4  dark:text-orange-200 dark:hover:text-orange-200">Contact Us</h3>
+        <ul class="list-unstyled text-sm">
+          <li>42312, Tameslouht</li>
+          <li>Marrakech,Morocco</li>
+          <li>Phone: (212) 694-022752</li>
+          <li>Email: fatimezzahradarim@gmail.com</li>
+        </ul>
+      </div>
+      <div class="w-full md:w-1/3 mb-6 md:mb-0">
+        <h3 class="text-lg font-bold mb-4  dark:text-orange-200 dark:hover:text-orange-200">Connect with Us</h3>
+        <div class="flex">
+          <a href="https://twitter.com/FatimezzahraDA" class="mr-4"><i class="fab fa-twitter fa-lg"></i></a>
+          <a href="https://www.instagram.com/fatimazdarim/" class="mr-4"><i class="fab fa-instagram fa-lg"></i></a>
+          <a href="https://www.linkedin.com/in/fatimezzahra-darim/" class="mr-4"><i class="fab fa-linkedin fa-lg"></i></a>
+          <a href="https://github.com/Fatimezzahra-DARIM" class="mr-4"><i class="fab fa-github fa-lg"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="my-6 border-gray-700">
+    <div class="flex flex-wrap items-center">
+      <div class="w-full md:w-1/3 text-sm">
+        <span>&copy; 2023 Mining In Morocco. All rights reserved.</span>
+      </div>
+      <div class="w-full md:w-1/3 text-sm text-center">
+        <a href="#" class="mr-2">Terms</a>
+        <span class="mx-2">•</span>
+        <a href="#" class="ml-2 mr-2">Privacy</a>
+      </div>
+      <div class="w-full md:w-1/3 text-sm text-right">
+        <span>Designed by Fatimezzahra DARIM</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ::::::::::::::::::::::::::::: -->
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
 
