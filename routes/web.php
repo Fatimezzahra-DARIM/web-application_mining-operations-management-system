@@ -26,6 +26,10 @@ Route::middleware([
         return view('template/adminDashboard/contents/dashboard');
         // return view('dashboard');
     })->name('dashboard');
+    Route::get('/manage', function () {
+        return view('template/adminDashboard/contents/tableGeologists');
+        // return view('dashboard');
+    })->name('manage');
 });
 
 
