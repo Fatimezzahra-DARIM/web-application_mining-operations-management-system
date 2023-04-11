@@ -19,7 +19,7 @@
                         <img src="{{asset('images/new/MMLogo.png')}}" class="h-8 mr-3" alt="Mining In Morocco Logo" />
                         <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Mining In Morocco</span>
                     </a>
-                    <form action="#" method="GET" class="hidden lg:block lg:pl-3.5">
+                    <form action="#" method="" class="hidden lg:block lg:pl-3.5">
                         <label for="topbar-search" class="sr-only">Search</label>
                         <div class="relative mt-1 lg:w-96">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -365,9 +365,11 @@
                                         role="menuitem">Earnings</a>
                                 </li>
                                 <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        role="menuitem">Sign out</a>
+                                  <!-- Authentication =>Sign out -->
+                                    <form method="POST" action="{{ route('logout') }}" x-data>
+                                        @csrf
+                                        <button type="submit" role="menuitem" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">Sign Out</button> 
+                                    </form>
                                 </li>
                             </ul>
                         </div>

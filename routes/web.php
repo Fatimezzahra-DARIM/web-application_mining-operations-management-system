@@ -23,21 +23,32 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+        return view('template/adminDashboard/contents/dashboard');
+        // return view('dashboard');
+    });
 });
 
 
-Route::get('/admin', function () {
-    return view('template/adminDashboard/layout/index');
-})->name('admin');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/admin', function () {
+        return view('template/adminDashboard/layout/index');
+    })->name('admin');
 
-Route::get('/admin/dashboard', function () {
-    return view('template/adminDashboard/contents/dashboard');
-})->name('admin_dashboard');
-Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::post('/geologists', [GeologistController::class, 'createGeologist'])->name('geologists.create');
-    Route::get('/geologists/{id}', [GeologistController::class, 'readGeologist'])->name('geologists.read');
-    Route::put('/geologists/{id}', [GeologistController::class, 'updateGeologist'])->name('geologists.update');
-    Route::delete('/geologists/{id}', [GeologistController::class, 'deleteGeologist'])->name('geologists.delete');
+    Route::get('/admin/dashboard', function () {
+        return view('template/adminDashboard/contents/dashboard');
+    })->name('admin_dashboard');
 });
+
+
+
+
+// Route::prefix('admin')->middleware('auth')->group(function () {
+//     Route::post('/geologists', [GeologistController::class, 'createGeologist'])->name('geologists.create');
+//     Route::get('/geologists/{id}', [GeologistController::class, 'readGeologist'])->name('geologists.read');
+//     Route::put('/geologists/{id}', [GeologistController::class, 'updateGeologist'])->name('geologists.update');
+//     Route::delete('/geologists/{id}', [GeologistController::class, 'deleteGeologist'])->name('geologists.delete');
+// });
