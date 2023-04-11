@@ -1,4 +1,4 @@
- <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+ <nav class="fixed top-0 z-50 w-full  dark:bg-zinc-700" style=" color:#3f3f46!important">
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start">
@@ -17,9 +17,9 @@
                     
                     <a href="#" class="flex ml-2 md:mr-24">
                         <img src="{{asset('images/new/MMLogo.png')}}" class="h-8 mr-3" alt="Mining In Morocco Logo" />
-                        <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Mining In Morocco</span>
+                        <span  class="text-transparent bg-clip-text bg-gradient-to-r to-amber-500 from-amber-50">Mining In Morocco</span>
                     </a>
-                    <form action="#" method="" class="hidden lg:block lg:pl-3.5">
+                    {{-- <form action="#" method="" class="hidden lg:block lg:pl-3.5">
                         <label for="topbar-search" class="sr-only">Search</label>
                         <div class="relative mt-1 lg:w-96">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -34,12 +34,12 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="Search">
                         </div>
-                    </form>
+                    </form> --}}
                 </div>
                 <div class="flex items-center">
                     
                     <!-- Search mobile -->
-                    <button id="toggleSidebarMobileSearch" type="button"
+                    {{-- <button id="toggleSidebarMobileSearch" type="button"
                         class="p-2 text-gray-500 rounded-lg lg:hidden hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                         <span class="sr-only">Search</span>
                         <!-- Search icon -->
@@ -48,7 +48,7 @@
                                 d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                    </button>
+                    </button> --}}
                     <!-- Notifications -->
                     <button type="button" data-dropdown-toggle="notification-dropdown"
                         class="p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700">
@@ -61,7 +61,8 @@
                         </svg>
                     </button>
                     <!-- Dropdown menu -->
-                    <div class="z-20 z-50 hidden max-w-sm my-4 overflow-hidden text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:divide-gray-600 dark:bg-gray-700"
+                    {{-- z-20 --}}
+                    <div class=" z-50 hidden max-w-sm my-4 overflow-hidden text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:divide-gray-600 dark:bg-gray-700"
                         id="notification-dropdown">
                         <div
                             class="block px-4 py-2 text-base font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -214,7 +215,8 @@
                         </svg>
                     </button>
                     <!-- Dropdown menu -->
-                    <div class="z-20 z-50 hidden max-w-sm my-4 overflow-hidden text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:bg-gray-700 dark:divide-gray-600"
+                    {{-- z-20 --}}
+                    <div class=" z-50 hidden max-w-sm my-4 overflow-hidden text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:bg-gray-700 dark:divide-gray-600"
                         id="apps-dropdown">
                         <div
                             class="block px-4 py-2 text-base font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

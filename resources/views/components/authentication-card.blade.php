@@ -3,7 +3,7 @@
         {{ $logo }}
     </div>
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800  overflow-hidden sm:rounded-lg" style="background-color:#F8B134!important; box-shadow: 2px 2px 10px 4px rgba(255, 193, 7, 0.5) !important;">
+    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-[#3f3f46]  overflow-hidden sm:rounded-lg" style="background-color:#F8B134!important; box-shadow: 2px 2px 10px 4px rgba(255, 193, 7, 0.5) !important;">
         {{ $slot }}
     </div>
 </div>

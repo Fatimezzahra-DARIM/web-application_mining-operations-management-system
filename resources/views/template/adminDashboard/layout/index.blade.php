@@ -9,18 +9,22 @@
 
     <title>@yield('title','Mining')</title>
     @include('.template.adminDashboard.layout.header')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
 </head>
 <body>
     @include('.template.adminDashboard.layout.navbar')
     @include('.template.adminDashboard.layout.sidebar')
 
-    <div class="p-4 mt-20 sm:ml-64">
-        <div class="p-4 rounded-lg dark:border-gray-700">
+    <div class="mt-16 sm:ml-64">
+        <div class="rounded-lg dark:border-gray-700">
             @yield('content')
         </div>
     </div>
-
-    <h1>hello</h1>
+    
     @include('.template.adminDashboard.layout.footer')
 </body>
 </html>
