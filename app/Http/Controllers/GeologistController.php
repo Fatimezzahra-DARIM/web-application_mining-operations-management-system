@@ -76,12 +76,12 @@ class GeologistController extends Controller
     public function deleteGeologist($id)
     {
         // Get the geologist
-        $geologist = Geologist::findOrFail($id);
+        $geologist = User::findOrFail($id);
 
         // Delete the geologist
         $geologist->delete();
 
         // Redirect to the list of geologists
-        return redirect('/geologists');
+        return redirect('manage');
     }
 }
