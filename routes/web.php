@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GeologistController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,10 +27,11 @@ Route::middleware([
         return view('template/adminDashboard/contents/dashboard');
         // return view('dashboard');
     })->name('dashboard');
-    Route::get('/manage', function () {
-        return view('template/adminDashboard/contents/tableGeologists');
-        // return view('dashboard');
-    })->name('manage');
+    // Route::get('/manage', function () {
+    //     return view('template/adminDashboard/contents/tableGeologists');
+    //     // return view('dashboard');
+    // })->name('manage');
+    Route::get('/manage', [GeologistController::class,'index'])->name('manage');
 });
 
 

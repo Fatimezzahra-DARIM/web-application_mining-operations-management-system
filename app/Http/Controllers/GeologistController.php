@@ -6,9 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Geologist;
 use App\Models\Role;
+use App\Models\User;
 
 class GeologistController extends Controller
 {
+    public function index()
+    {
+        $geologists = User::all(); // Retrieve all the geologists from the database
+        return view('template/adminDashboard/contents/tableGeologists', ['geologists'=>$geologists]); // Pass the $geologists variable to the view
+    }
     // public function createGeologist(Request $request)
     // {
     //     // Validate the input
