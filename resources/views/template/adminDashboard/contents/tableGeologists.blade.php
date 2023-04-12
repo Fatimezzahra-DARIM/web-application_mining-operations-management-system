@@ -129,29 +129,21 @@
                 <span class="sr-only">Close modal</span>
             </button>
             <div class="px-6 py-6 lg:px-8">
-                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add a New Account Geologist</h3>
-                <form class="space-y-6" action="#">
-                    <!-- <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required>
-                    </div>
-                    <div>
-                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                    </div>
-                    <div>
-                        <label for="Confirm password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm Password</label>
-                        <input type="Confirm password" name="Confirm password" id="Confirm password" placeholder="••••••••"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div> -->
-                    <label for="default" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a Role</label>
-                    <select id="default"
+                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white"> Geologist</h3>
+                <form class="space-y-6" action="{{ route('updateRole') }}" method="POST">
+                         @csrf
+                         @method('PUT')
+                    <input id="updatedRoleFormInput" type="text" name="user_id" value="">
+                    <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a Role</label>
+                    <select id="role"
                     class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option selected>Choose a role</option>
-                        <option value="US">field geologist</option>
-                        <option value="CA">Laboratory Geologist</option>
-                        <option value="FR">Geomatician</option>
+                        <option selected >Choose a role</option>
+                        <option value="1">role 1</option>
+                        <option value="2">role 2</option>
+                        <option value="3">role 3</option>
+                        {{-- <option value="field_geologist" {{ $geologist->role == 'field_geologist' ? 'selected' : '' }} >Field Geologist</option>
+                        <option value="lab_geologist" {{ $geologist->role == 'lab_geologist' ? 'selected' : '' }}>Laboratory Geologist</option>
+                        <option value="geomatician" {{ $geologist->role == 'geomatician' ? 'selected' : '' }}>Geomatician</option> --}}
                     </select>
                     <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Account Geologist</button>
                     
@@ -164,7 +156,12 @@
 
         <!--Card-->
         <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-
+            @if (session('success'))
+            <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-zinc-700 dark:text-green-400" role="alert">
+            {{ session('success') }}
+            </div>
+            
+            @endif
 
             <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                 <thead>
@@ -180,14 +177,14 @@
                 </thead>
                 <tbody>
                     {{-- @dd($geologists) --}}
-                     @foreach ($geologists as $geologist)
+        @foreach ($geologists as $geologist)
         <tr>
             {{-- @dd($geologist->profile_photo_path) --}}
             <td><img src="{{ asset('storage/'.$geologist->profile_photo_path) }}"></td>
             <td>{{ $geologist->name }}</td>
             <td>{{ $geologist->email }}</td>
             <td>{{ $geologist->role }}</td>
-            <td class="text-center"><button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Change Role</button></td>
+            <td class="text-center"><button onclick="prepareToUpdated({{ $geologist->id }})" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Change Role</button></td>
             <td class="text-center">
                 <form action="{{ route('geologists.destroy', $geologist->id) }}" method="POST">
                  @csrf
@@ -201,6 +198,8 @@
                 </tbody>
 
             </table>
+          
+
 
             
         </div>
@@ -221,7 +220,13 @@
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script>
-        $(document).ready(function () {
+       
+        function prepareToUpdated(id){
+            input = document.getElementById('updatedRoleFormInput');
+            input.value = id;
+            
+        };
+         $(document).ready(function () {
 
             var table = $('#example').DataTable({
                 responsive: true
@@ -229,6 +234,6 @@
             .columns.adjust()
                 .responsive.recalc();
             });
-            </script>
+    </script>
 
 @endsection
