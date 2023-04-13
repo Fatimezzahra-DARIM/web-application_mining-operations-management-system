@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Geologist extends Model
 {
     use HasFactory;
+    
 }

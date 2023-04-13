@@ -58,4 +58,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class, 'geologist_id');
+    }
+
+    public function assignedTasks()
+    {
+        return $this->hasMany(Task::class, 'admin_id');
+    }
 }
