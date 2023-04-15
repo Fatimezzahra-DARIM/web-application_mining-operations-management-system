@@ -1241,23 +1241,6 @@
 										},
 										{
 											"_type": "UMLAttributeView",
-											"_id": "AAAAAAGHR8+Mquqbxgo=",
-											"_parent": {
-												"$ref": "AAAAAAGHR0ls0bmQ7CY="
-											},
-											"model": {
-												"$ref": "AAAAAAGHR8+Mk+qYSP0="
-											},
-											"font": "Arial;13;0",
-											"left": 549,
-											"top": 719,
-											"width": 101.53076171875,
-											"height": 13,
-											"text": "+speciality_id",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
 											"_id": "AAAAAAGHS/Bx9ZIPrX4=",
 											"_parent": {
 												"$ref": "AAAAAAGHR0ls0bmQ7CY="
@@ -1267,27 +1250,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 549,
-											"top": 734,
+											"top": 719,
 											"width": 101.53076171875,
 											"height": 13,
 											"text": "+notification_id",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAGHTCqWnEL2D2o=",
-											"_parent": {
-												"$ref": "AAAAAAGHR0ls0bmQ7CY="
-											},
-											"model": {
-												"$ref": "AAAAAAGHTCqWd0Lzvb0="
-											},
-											"font": "Arial;13;0",
-											"left": 549,
-											"top": 749,
-											"width": 101.53076171875,
-											"height": 13,
-											"text": "+status",
 											"horizontalAlignment": 0
 										}
 									],
@@ -1295,7 +1261,7 @@
 									"left": 544,
 									"top": 609,
 									"width": 111.53076171875,
-									"height": 158
+									"height": 128
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -1308,7 +1274,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 544,
-									"top": 767,
+									"top": 737,
 									"width": 111.53076171875,
 									"height": 10
 								},
@@ -1499,7 +1465,7 @@
 											"top": 653,
 											"width": 101.49267578125,
 											"height": 13,
-											"text": "+file_name",
+											"text": "+file_title",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1516,7 +1482,7 @@
 											"top": 668,
 											"width": 101.49267578125,
 											"height": 13,
-											"text": "+file_path",
+											"text": "+file_description",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1550,24 +1516,24 @@
 											"top": 698,
 											"width": 101.49267578125,
 											"height": 13,
-											"text": "+geologist_id",
+											"text": "+user_id",
 											"horizontalAlignment": 0
 										},
 										{
 											"_type": "UMLAttributeView",
-											"_id": "AAAAAAGHR1+NArtCTrI=",
+											"_id": "AAAAAAGHhUFJl81fsuA=",
 											"_parent": {
 												"$ref": "AAAAAAGHR134srr67u4="
 											},
 											"model": {
-												"$ref": "AAAAAAGHR1+M7bs/ajs="
+												"$ref": "AAAAAAGHhUFJZc1cra0="
 											},
 											"font": "Arial;13;0",
 											"left": 165,
 											"top": 713,
 											"width": 101.49267578125,
 											"height": 13,
-											"text": "+admin_id",
+											"text": "+status",
 											"horizontalAlignment": 0
 										}
 									],
@@ -5062,29 +5028,11 @@
 						},
 						{
 							"_type": "UMLAttribute",
-							"_id": "AAAAAAGHR8+Mk+qYSP0=",
-							"_parent": {
-								"$ref": "AAAAAAGHR0ls0bmI3S4="
-							},
-							"name": "speciality_id",
-							"type": ""
-						},
-						{
-							"_type": "UMLAttribute",
 							"_id": "AAAAAAGHS/Bx25IMswc=",
 							"_parent": {
 								"$ref": "AAAAAAGHR0ls0bmI3S4="
 							},
 							"name": "notification_id",
-							"type": ""
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAGHTCqWd0Lzvb0=",
-							"_parent": {
-								"$ref": "AAAAAAGHR0ls0bmI3S4="
-							},
-							"name": "status",
 							"type": ""
 						}
 					]
@@ -5244,8 +5192,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGHR134sLryq3U="
 							},
-							"name": "file_name",
-							"type": ""
+							"name": "file_title"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5253,8 +5200,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGHR134sLryq3U="
 							},
-							"name": "file_path",
-							"type": ""
+							"name": "file_description"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5271,17 +5217,15 @@
 							"_parent": {
 								"$ref": "AAAAAAGHR134sLryq3U="
 							},
-							"name": "geologist_id",
-							"type": ""
+							"name": "user_id"
 						},
 						{
 							"_type": "UMLAttribute",
-							"_id": "AAAAAAGHR1+M7bs/ajs=",
+							"_id": "AAAAAAGHhUFJZc1cra0=",
 							"_parent": {
 								"$ref": "AAAAAAGHR134sLryq3U="
 							},
-							"name": "admin_id",
-							"type": ""
+							"name": "status"
 						}
 					],
 					"operations": [

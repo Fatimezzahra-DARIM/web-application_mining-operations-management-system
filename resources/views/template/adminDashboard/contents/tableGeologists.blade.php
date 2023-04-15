@@ -166,13 +166,12 @@
             <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                 <thead>
                     <tr>
-                        <th data-priority="1">Select</th>
-                        <th data-priority="2">Image</th>
-                        <th data-priority="3">Name</th>
-                        <th data-priority="4">Email</th>
-                        <th data-priority="5">Role</th>
-                        <th data-priority="6">Change Role</th>
-                        <th data-priority="7">Delete Geologist</th>
+                        <th data-priority="1">Image</th>
+                        <th data-priority="2">Name</th>
+                        <th data-priority="3">Email</th>
+                        <th data-priority="4">Role</th>
+                        <th data-priority="5">Change Role</th>
+                        <th data-priority="6">Delete Geologist</th>
                         
                     </tr>
                 </thead>
@@ -180,10 +179,6 @@
                     {{-- @dd($geologists) --}}
         @foreach ($geologists as $geologist)
         <tr>
-            
-            <td class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                              <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" />
-            </td>
             {{-- @dd($geologist->profile_photo_path) --}}
             <td><img src="{{ asset('storage/'.$geologist->profile_photo_path) }}"></td>
             <td>{{ $geologist->name }}</td>
