@@ -5,6 +5,6 @@
     </main>
 </div>
 
-{{-- @stack('modals')
+@stack('modals')
 
-@livewireScripts --}}
+@livewireScripts

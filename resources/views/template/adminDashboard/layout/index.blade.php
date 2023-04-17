@@ -28,5 +28,6 @@
     </div>
     
     @include('.template.adminDashboard.layout.footer')
+    
 </body>
 </html>
