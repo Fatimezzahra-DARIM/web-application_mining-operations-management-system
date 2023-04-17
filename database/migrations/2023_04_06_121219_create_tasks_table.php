@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('task_description');
             $table->unsignedBigInteger('admin_id');
             $table->boolean('status')->default(false);
-            $table->foreign('admin_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('admin_id')->references('id')->on('users');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

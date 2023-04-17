@@ -55,7 +55,7 @@
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4 ">
             <x-label for="name" value="{{ __('Name') }}" />
-            <x-input id="name" type="text" class="mt-1 block w-full" style="background-color:#fed7aa !important; color:black !important" wire:model.defer="state.name" autocomplete="name" />
+            <x-input id="name" type="text" class="mt-1 block w-full" style="background-color:#04a3ffaa !important; color:black !important" wire:model.defer="state.name" value="{{ Auth::user()->name }}" autocomplete="name" />
             <x-input-error for="name" class="mt-2" />
         </div>
 

@@ -180,7 +180,7 @@
         @foreach ($geologists as $geologist)
         <tr>
             {{-- @dd($geologist->profile_photo_path) --}}
-            <td><img src="{{ asset('storage/'.$geologist->profile_photo_path) }}"></td>
+            <td><img src="{{ asset('storage/profile-photos/'.$geologist->profile_photo_path) }}"></td>
             <td>{{ $geologist->name }}</td>
             <td>{{ $geologist->email }}</td>
             <td>{{ $geologist->role }}</td>
