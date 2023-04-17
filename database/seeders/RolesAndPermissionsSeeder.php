@@ -17,6 +17,11 @@ class RolesAndPermissionsSeeder extends Seeder
     {
         // reset cached roles and permissions
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
-    Permission::create(['name'=>'add geologist']);
+        $addGeo = "add geologist";
+        $addGeo = "add geologist";
+        $addGeo = "add geologist";
+        $addGeo = "add geologist";
+        $addGeo = "add geologist";
+        Permission::create(['name' => $addGeo]);
     }
 }
