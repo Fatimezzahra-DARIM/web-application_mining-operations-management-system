@@ -62,9 +62,45 @@ class RolesAndPermissionsSeeder extends Seeder
         $geologist='geologist';
         $fieldGeologist= 'field-geologist';
         $laboratoryGeologist= 'laboratory-geologist';
-        $Geomatician='office-geologist';
+        $geomatician='office-geologist';
         //Create Roles
-        Role::create(['name'=> $superAdmin])->givePermissionsTo(Permission::all());
+        Role::create(['name'=> $superAdmin])->givePermissionsTo([
+            $viewNotif,
+            $viewFinalTask,
+            $viewTask,
+            $updateTask,
+            $deleteTask,
+            $addTask,
+            $changeRole,
+            $deleteGeologist,
+            $acceptOrRedoIt,
+        ]);
+        Role::create(['name' => $geologist])->givePermissionsTo($viewDashboard);
 
+        Role::create(['name'=> $fieldGeologist]) ->givePermissionTo([
+            $viewNotif,
+            $viewTask,
+            $viewFinalTask, 
+            $updateFinalTask,
+            $deleteFinalTask,
+            $addFinalTask,
+            $viewTaskAdded,
+        ]);
+        Role::create(['name'=> $laboratoryGeologist]) ->givePermissionTo([$viewNotif,
+            $viewTask,
+            $viewFinalTask,
+            $updateFinalTask,
+            $deleteFinalTask,
+            $addFinalTask,
+            $viewTaskAdded,
+        ]);
+        Role::create(['name' => $geomatician])->givePermissionTo([$viewNotif,
+            $viewTask,
+            $viewFinalTask,
+            $updateFinalTask,
+            $deleteFinalTask,
+            $addFinalTask,
+            $viewTaskAdded,
+        ]);
     }
 }
