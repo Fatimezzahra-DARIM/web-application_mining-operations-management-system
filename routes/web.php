@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\GeologistController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -64,8 +66,9 @@ Route::middleware([
     Route::get('/admin/dashboard', function () {
         return view('template/adminDashboard/contents/dashboard');
     })->name('admin_dashboard');
-
-    // Add more routes for the 'admin' role here
+    Route::put('/update-role', [AdminController::class, 'updateRole'])->name('updateRole');
+    Route::get('/manage', [GeologistController::class,'index'])->name('manage');
+    Route::delete('/geologists/{geologist}', [GeologistController::class, 'deleteGeologist'])->name('geologists.destroy');
 });
 Route::middleware([
     'auth:sanctum',

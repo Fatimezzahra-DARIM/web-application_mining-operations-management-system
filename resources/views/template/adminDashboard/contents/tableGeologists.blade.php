@@ -1,12 +1,12 @@
 @extends('.template.adminDashboard.layout.index')
 
 @section('title') Manage Geologist
-    
+
 @endsection
 
 
 @section('content')
-    
+
 <style>
 
     /*Overrides for Tailwind CSS */
@@ -34,7 +34,7 @@
             background-color: #edf2f7;
             /*bg-gray-200*/
         }
-        
+
         /*Row Hover*/
         table.dataTable.hover tbody tr:hover,
         table.dataTable.display tbody tr:hover {
@@ -51,7 +51,7 @@
             border: 1px solid transparent;
             /*border border-transparent*/
         }
-        
+
         /*Pagination Buttons - Current selected */
         .dataTables_wrapper .dataTables_paginate .paginate_button.current {
             color: #fff !important;
@@ -103,7 +103,7 @@
 
 
 
-    
+
 <!-- Modal toggle -->
 
 <div class="bg-gray-100 text-gray-900 tracking-wider leading-normal">
@@ -135,23 +135,24 @@
                          @method('PUT')
                     <input id="updatedRoleFormInput" type="text" name="user_id" value="">
                     <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a Role</label>
-                    <select id="role"
+                    <select id="role"   name="role_id"
                     class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option selected >Choose a role</option>
-                        <option value="1">role 1</option>
-                        <option value="2">role 2</option>
-                        <option value="3">role 3</option>
+                        <option value="1">Admin</option>
+                        <option value="3">Field Geologist</option>
+                        <option value="4">Laboratory Geologist</option>
+                        <option value="5">Geomatician</option>
                         {{-- <option value="field_geologist" {{ $geologist->role == 'field_geologist' ? 'selected' : '' }} >Field Geologist</option>
                         <option value="lab_geologist" {{ $geologist->role == 'lab_geologist' ? 'selected' : '' }}>Laboratory Geologist</option>
                         <option value="geomatician" {{ $geologist->role == 'geomatician' ? 'selected' : '' }}>Geomatician</option> --}}
                     </select>
                     <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Account Geologist</button>
-                    
+
                 </form>
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 
         <!--Card-->
@@ -160,7 +161,7 @@
             <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-zinc-700 dark:text-green-400" role="alert">
             {{ session('success') }}
             </div>
-            
+
             @endif
 
             <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
@@ -172,7 +173,7 @@
                         <th data-priority="4">Role</th>
                         <th data-priority="5">Change Role</th>
                         <th data-priority="6">Delete Geologist</th>
-                        
+
                     </tr>
                 </thead>
                 <tbody>
@@ -198,13 +199,13 @@
                 </tbody>
 
             </table>
-          
 
 
-            
+
+
         </div>
         <!--/Card-->
-        
+
 
     </div>
     <!--/container-->
@@ -220,11 +221,11 @@
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script>
-       
+
         function prepareToUpdated(id){
             input = document.getElementById('updatedRoleFormInput');
             input.value = id;
-            
+
         };
          $(document).ready(function () {
 
