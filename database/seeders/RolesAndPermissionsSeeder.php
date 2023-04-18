@@ -19,8 +19,8 @@ class RolesAndPermissionsSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
         // create permissions
         //admin permissions
-        $viewNotif= 'view notifications';
-        $viewFinalTask= 'view finalized tasks';
+        $viewNotifAdmin= 'admin view notifications';
+        // $viewFinalTask= 'view finalized tasks';
         $viewTask= 'view tasks';
         $updateTask= 'update tasks';
         $deleteTask= 'delete tasks';
@@ -28,8 +28,8 @@ class RolesAndPermissionsSeeder extends Seeder
         $changeRole = 'change role';
         $deleteGeologist = 'Delete geologist';
         $acceptOrRedoIt='Accept task_file or redo it';
-        Permission::create(['name' => $viewNotif ]);
-        Permission::create(['name' => $viewFinalTask]);
+        Permission::create(['name' => $viewNotifAdmin ]);
+        // Permission::create(['name' => $viewFinalTask]);
         Permission::create(['name' => $viewTask]);
         Permission::create(['name' => $updateTask]);
         Permission::create(['name' => $deleteTask]);
@@ -43,13 +43,13 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => $viewDashboard]);
 
         //Geologist:Field-Lab-office
-        $viewNotif = 'view notifications';
-        $viewTask= 'view tasks';
-        $viewFinalTask = 'view finalized tasks';
-        $updateFinalTask= 'update finalized tasks';
-        $deleteFinalTask = 'delete finalized tasks';
-        $addFinalTask = 'add finalized tasks';
-        $viewTaskAdded= 'view task added';
+        $viewNotif = ' geologist view notifications';
+        $viewTask= ' field-geologist view tasks';
+        $viewFinalTask = ' view finalized tasks';
+        $updateFinalTask= 'field-geologist update finalized tasks';
+        $deleteFinalTask = 'field-geologistdelete finalized tasks';
+        $addFinalTask = 'field-geologist add finalized tasks';
+        $viewTaskAdded= 'field-geologist view task added';
         Permission::create(['name' => $viewNotif]);
         Permission::create(['name' => $viewTask]);
         Permission::create(['name' => $viewFinalTask]);
@@ -64,7 +64,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $laboratoryGeologist= 'laboratory-geologist';
         $geomatician='office-geologist';
         //Create Roles
-        Role::create(['name'=> $superAdmin])->givePermissionsTo([
+        Role::create(['name'=> $superAdmin])->syncPermissions([
             $viewNotif,
             $viewFinalTask,
             $viewTask,
@@ -75,18 +75,10 @@ class RolesAndPermissionsSeeder extends Seeder
             $deleteGeologist,
             $acceptOrRedoIt,
         ]);
-        Role::create(['name' => $geologist])->givePermissionsTo($viewDashboard);
+        Role::create(['name' => $geologist])->syncPermissions($viewDashboard);
 
-        Role::create(['name'=> $fieldGeologist]) ->givePermissionTo([
+        Role::create(['name'=> $fieldGeologist]) ->syncPermissions([
             $viewNotif,
-            $viewTask,
-            $viewFinalTask, 
-            $updateFinalTask,
-            $deleteFinalTask,
-            $addFinalTask,
-            $viewTaskAdded,
-        ]);
-        Role::create(['name'=> $laboratoryGeologist]) ->givePermissionTo([$viewNotif,
             $viewTask,
             $viewFinalTask,
             $updateFinalTask,
@@ -94,7 +86,15 @@ class RolesAndPermissionsSeeder extends Seeder
             $addFinalTask,
             $viewTaskAdded,
         ]);
-        Role::create(['name' => $geomatician])->givePermissionTo([$viewNotif,
+        Role::create(['name'=> $laboratoryGeologist]) ->syncPermissions([$viewNotif,
+            $viewTask,
+            $viewFinalTask,
+            $updateFinalTask,
+            $deleteFinalTask,
+            $addFinalTask,
+            $viewTaskAdded,
+        ]);
+        Role::create(['name' => $geomatician])->syncPermissions([$viewNotif,
             $viewTask,
             $viewFinalTask,
             $updateFinalTask,
