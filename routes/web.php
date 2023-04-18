@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\GeologistController;
-use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GeologistController;
 
 
 /*
@@ -68,6 +69,7 @@ Route::middleware([
     })->name('admin_dashboard');
     Route::put('/update-role', [AdminController::class, 'updateRole'])->name('updateRole');
     Route::get('/manage', [GeologistController::class,'index'])->name('manage');
+    Route::get('/kanban', [TaskController::class,'index'])->name('kanban');
     Route::delete('/geologists/{geologist}', [GeologistController::class, 'deleteGeologist'])->name('geologists.destroy');
 });
 Route::middleware([
