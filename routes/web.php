@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\WeatherController;
 use App\Http\Controllers\GeologistController;
 
 
@@ -71,6 +72,10 @@ Route::middleware([
     Route::get('/manage', [GeologistController::class,'index'])->name('manage');
     Route::get('/kanban', [TaskController::class,'index'])->name('kanban');
     Route::delete('/geologists/{geologist}', [GeologistController::class, 'deleteGeologist'])->name('geologists.destroy');
+    // Route::get('/weather', 'WeatherController@fetchWeatherData')->name('weather');
+    // Route::get('/weather', [WeatherController::class,'fetchWeatherData'])->name('weather');
+    Route::get('/weather', [WeatherController::class,'index'])->name('weather');
+
 });
 Route::middleware([
     'auth:sanctum',
