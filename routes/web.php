@@ -35,7 +35,7 @@ Route::middleware([
     // })->name('manage');
     Route::get('/manage', [GeologistController::class,'index'])->name('manage');
     Route::delete('/geologists/{geologist}', [GeologistController::class, 'deleteGeologist'])->name('geologists.destroy');
-    Route::put('/geologists', [GeologistController::class, 'updateRole'])->name('updateRole');
+    // Route::put('/geologists', [GeologistController::class, 'updateRole'])->name('updateRole');
 
 
 });

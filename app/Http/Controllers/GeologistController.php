@@ -15,17 +15,17 @@ class GeologistController extends Controller
         $geologists = User::all(); // Retrieve all the geologists from the database
         return view('template/adminDashboard/contents/tableGeologists', ['geologists'=>$geologists]); // Pass the $geologists variable to the view
     }
-    public function updateRole(Request $request)
-    {
-        $id = $request->input('user_id');
-        dd($id);
+    // public function updateRole(Request $request)
+    // {
+        // $id = $request->input('user_id');
+        // dd($id);
         // dd('ana dkhlt');
         // $geologist = User::findOrFail($id);
         // $geologist->role = $request->input('role');
         // $geologist->save();
         // return view('manage', ['geologists' => $geologist])->with('success', 'Role updated successfully');
-        
-    }
+
+    // }
 
 
     // public function readGeologist($id)
