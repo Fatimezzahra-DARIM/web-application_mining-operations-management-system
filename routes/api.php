@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+// $api->group(['middlware'=>['role:admin','prefix'=>'admin']],function($api){
+// $api->get
+// });
+

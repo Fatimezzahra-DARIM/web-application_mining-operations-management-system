@@ -36,12 +36,26 @@ Route::middleware([
 
 
 });
+    //
 
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/admin', function () {
+//         return view('template/adminDashboard/layout/index');
+//     })->name('admin');
 
+//     Route::get('/admin/dashboard', function () {
+//         return view('template/adminDashboard/contents/dashboard');
+//     })->name('admin_dashboard');
+// });
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
+    'role:admin' // Only users with the 'admin' role can access these routes
 ])->group(function () {
     Route::get('/admin', function () {
         return view('template/adminDashboard/layout/index');
@@ -50,8 +64,25 @@ Route::middleware([
     Route::get('/admin/dashboard', function () {
         return view('template/adminDashboard/contents/dashboard');
     })->name('admin_dashboard');
-});
 
+    // Add more routes for the 'admin' role here
+});
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    'role:geologist' // Only users with the 'geologist' role can access these routes
+])->group(function () {
+    Route::get('/geologist', function () {
+        return view('template/geologistDashboard/layout/index');
+    })->name('geologist');
+
+    Route::get('/geologist/dashboard', function () {
+        return view('template/geologistDashboard/contents/dashboard');
+    })->name('geologist_dashboard');
+
+    // Add more routes for the 'geologist' role here
+});
 
 
 
