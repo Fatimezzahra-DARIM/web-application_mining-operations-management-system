@@ -30,5 +30,10 @@ class UserSeeder extends Seeder
                 $user->assignRole('field-geologist');
             }
         );
+        User::factory()->count(3)->create()->each(
+            function($user){
+                $user->assignRole('laboratory-geologist');
+            }
+        );
     }
 }
