@@ -36,6 +36,15 @@ class GeologistController extends Controller
     //     // Return the geologist's profile page
     //     return view('geologist.profile', ['geologist' => $geologist]);
     // }
+    public function getUsersByRole($roleId)
+{
+    $users = User::whereHas('roles', function($query) use ($roleId) {
+        $query->where('id', $roleId);
+    })->get();
+
+    return response()->json($users);
+}
+
 
     public function deleteGeologist($id)
     {

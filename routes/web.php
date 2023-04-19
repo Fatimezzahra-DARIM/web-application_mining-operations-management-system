@@ -70,11 +70,22 @@ Route::middleware([
     })->name('admin_dashboard');
     Route::put('/update-role', [AdminController::class, 'updateRole'])->name('updateRole');
     Route::get('/manage', [GeologistController::class,'index'])->name('manage');
+
     Route::get('/kanban', [TaskController::class,'index'])->name('kanban');
     Route::delete('/geologists/{geologist}', [GeologistController::class, 'deleteGeologist'])->name('geologists.destroy');
     // Route::get('/weather', 'WeatherController@fetchWeatherData')->name('weather');
     // Route::get('/weather', [WeatherController::class,'fetchWeatherData'])->name('weather');
     Route::get('/weather', [WeatherController::class,'index'])->name('weather');
+    Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+    // Route::get('/get-users-by-role/{roleId}', function($roleId) {
+    //     $users = App\User::whereHas('roles', function($query) use ($roleId) {
+    //         $query->where('id', $roleId);
+    //     })->get();
+
+    //     return response()->json($users);
+    // });
+
+    Route::get('/get-users-by-role/{roleId}', [GeologistController::class,'getUsersByRole']);
 
 });
 Route::middleware([
