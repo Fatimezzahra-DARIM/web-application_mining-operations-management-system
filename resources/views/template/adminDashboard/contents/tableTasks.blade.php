@@ -100,31 +100,20 @@
         }
 </style>
 
-
-
-
-
-<!-- Modal toggle -->
-
 <div class="bg-gray-100 text-gray-900 tracking-wider leading-normal">
     <!--Container-->
     <div class="container  px-2">
-
         <!--Title-->
         <h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">
             Manage Tasks
         </h1>
-
-
-
         <!--Table-->
         <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
             @if (session('success'))
             <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-zinc-700 dark:text-green-400" role="alert">
             {{ session('success') }}
             </div>
-
-            @endif
+             @endif
 
             <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                 <thead>

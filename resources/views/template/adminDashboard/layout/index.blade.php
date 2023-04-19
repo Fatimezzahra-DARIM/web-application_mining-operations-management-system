@@ -26,8 +26,8 @@
             @yield('content')
         </div>
     </div>
+ 
 
     @include('.template.adminDashboard.layout.footer')
-
 </body>
 </html>

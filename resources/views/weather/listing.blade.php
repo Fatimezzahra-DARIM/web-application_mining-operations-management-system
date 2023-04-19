@@ -1,14 +1,13 @@
 
 @extends('.template.adminDashboard.layout.index')
 
-@section('title') Weather
+@section('title','Weather');
 
-@endsection
 
 
 @section('content')
 
-<h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">
+<h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-6 text-xl md:text-2xl">
     Weather Listing in 2M cities
 </h1>
 
@@ -32,7 +31,7 @@
                              <input type="title" name="title" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="" required>
                          </div>
                          <div>
-                             <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Assign TO</label>
+                             <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Assign To</label>
                              <select class="form-control" id="assignTo" multiple="multiple" style="width: 100%">
                                  <option >orange</option>
                                  <option>white</option>
@@ -63,15 +62,15 @@
  </div>
 
 {{-- my data fetched table --}}
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg p-8 mt-6 lg:mt-0 rounded bg-white" >
     @foreach ($weatherData as $city => $data)
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <caption class="p-5 text-lg font-semibold text-center text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+    <table style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+        <caption class="p-5 text-lg font-semibold text-center text-gray-900 bg-white dark:text-gray-900 dark:bg-neutral-100">
             {{ $city }}
             <!-- <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Browse a list of Flowbite products designed to help you work and play, stay organized, get answers, keep in touch, grow your business, and more.</p> -->
         </caption>
 
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-500 dark:text-gray-100">
             <tr>
                 <th scope="col" class="px-6 py-3">
                     Date
@@ -90,15 +89,15 @@
 
             @foreach ($data->list as $day)
             @if ($loop->index % 8 == 0)
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <tr class="bg-white border-b dark:bg-neutral-300 dark:border-gray-700">
 
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray-900">
                     {{ date('l, F jS', strtotime($day->dt_txt)) }}
                 </th>
-                <td class="px-6 py-4">
+                <td class="px-6 py-4 dark:text-gray-800">
                     {{ $day->main->temp }} &deg;C
                 </td>
-                <td class="px-6 py-4">
+                <td class="px-6 py-4 dark:text-gray-800">
                     {{ $day->weather[0]->description }}
                 </td>
 
@@ -112,14 +111,15 @@
     @endforeach
 
 </div>
+@endsection
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
-@push('script & Jquery')
+
+@push('scripts')
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-<script>
 
-    $("#assignTo").select2({
+   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+   <script>  $("#assignTo").select2({
       tags: false,
       tokenSeparators: [',']
   })
@@ -154,7 +154,7 @@
 
 {{-- @push('cdn') --}}
 
-@endsection
+
 
 
 
