@@ -64,15 +64,15 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    // protected $dates = ['deleted_at']; 
-    
+    // protected $dates = ['deleted_at'];
+
     public function tasks()
     {
-        return $this->hasMany(Task::class, 'geologist_id');
+        return $this->belongsToMany(Task::class);
     }
 
-    public function assignedTasks()
-    {
-        return $this->hasMany(Task::class, 'admin_id');
-    }
+    // public function assignedTasks()
+    // {
+    //     return $this->hasMany(Task::class, 'admin_id');
+    // }
 }
