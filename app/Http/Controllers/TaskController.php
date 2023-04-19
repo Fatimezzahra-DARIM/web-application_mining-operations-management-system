@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,9 +12,16 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::all();
+        $adminId;
+        foreach ($tasks as $task) {
+            $adminId=$task->admin_id;
+        }
 
+        $admin=User::find($adminId)->first();
+        $adminName=$admin->name;
+        // dd($adminName);
         // return view('tasks.index', compact('tasks'));
-        return view('template/adminDashboard/contents/tableTasks', ['tasks'=>$tasks]);
+        return view('template/adminDashboard/contents/tableTasks', ['tasks'=>$tasks, 'adminName'=>$adminName]);
     }
 
     public function create()

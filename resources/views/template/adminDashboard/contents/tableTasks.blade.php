@@ -122,19 +122,17 @@
                         <th data-priority="2">Description</th>
                         <th data-priority="3">Admin Name</th>
                         <th data-priority="4">Status</th>
-
-
                     </tr>
                 </thead>
                 <tbody>
-
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-
+                    @foreach ($tasks as $task)
+                <tr>
+                    <td>{{ $task->task_name }}</td>
+                    <td>{{ $task->task_description }}</td>
+                    <td>{{ $adminName }}</td>
+                    <td>{{ $task->status }}</td>
+                </tr>
+                    @endforeach
                 </tbody>
 
             </table>
@@ -149,6 +147,7 @@
     </div>
     <!--/container-->
 </div>
+@endsection
 
 
 
@@ -176,5 +175,3 @@
             });
     </script>
 
-{{-- @endpush --}}
-@endsection
