@@ -11,26 +11,20 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all();
-        $adminId;
-        foreach ($tasks as $task) {
-            $adminId=$task->admin_id;
-        }
+        // $tasks = Task::all();
+        // $adminId;
+        // foreach ($tasks as $task) {
+        //     $adminId=$task->admin_id;
+        // }
 
-        $admin=User::find($adminId)->first();
-        $adminName=$admin->name;
+        // $admin=User::find($adminId)->first();
+        // $adminName=$admin->name;
+        $tasks = Task::with('admin','users')->get();
         // dd($adminName);
         // return view('tasks.index', compact('tasks'));
-        return view('template/adminDashboard/contents/tableTasks', ['tasks'=>$tasks, 'adminName'=>$adminName]);
+        return view('template/adminDashboard/contents/tableTasks', ['tasks'=>$tasks]);
+        // return view('template/adminDashboard/contents/tableTasks', ['tasks'=>$tasks, 'adminName'=>$adminName]);
     }
-
-    public function create()
-    {
-        $roles = Role::all();
-
-        return view('tasks.create', compact('roles'));
-    }
-
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -51,41 +45,34 @@ class TaskController extends Controller
 
         return redirect()->back();
     }
-
-    public function show(Task $task)
-    {
-        return view('tasks.show', compact('task'));
-    }
-
     public function edit(Task $task)
-    {
-        $roles = Role::all();
+{
+    $users = User::all();
+    return view('template/adminDashboard/contents/editTask', compact('task', 'users'));
+}
 
-        return view('tasks.edit', compact('task', 'roles'));
-    }
+public function update(Request $request, Task $task)
+{
+    $validatedData = $request->validate([
+        'title' => 'required|string',
+        'description' => 'required|max:255',
+        'user_ids.*' => 'required'
+    ]);
 
-    public function update(Request $request, Task $task)
-    {
-        $validatedData = $request->validate([
-            'title' => 'required',
-            'role_id' => 'required|exists:roles,id',
-            'paragraphs' => 'required|array|min:1',
-        ]);
+    $task->task_name = $validatedData['title'];
+    $task->task_description = $validatedData['description'];
+    $task->users()->sync($validatedData['user_ids']);
+    $task->save();
 
-        $task->title = $validatedData['title'];
-        $task->role_id = $validatedData['role_id'];
-        $task->paragraphs = json_encode($validatedData['paragraphs']);
-        $task->save();
+    return redirect()->back()->with('success', 'Task updated successfully');
+}
 
-        return redirect()->route('tasks.index');
-    }
+public function destroy(Task $task)
+{
+    $task->delete();
+    return redirect()->back()->with('success', 'Task deleted successfully');
+}
 
-    public function destroy(Task $task)
-    {
-        $task->delete();
-
-        return redirect()->route('tasks.index');
-    }
 }
 
 

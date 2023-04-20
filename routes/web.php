@@ -86,6 +86,10 @@ Route::middleware([
     // });
 
     Route::get('/get-users-by-role/{roleId}', [GeologistController::class,'getUsersByRole']);
+    Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+    Route::put('/tasks', [TaskController::class, 'update'])->name('tasks.update');
+    Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+
 
 });
 Route::middleware([
