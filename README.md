@@ -1,66 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+  
+<center>
+
+# Web application mining operations management system
+
+</center>
+
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://user-images.githubusercontent.com/109971055/233845679-ea692e37-f8cf-4975-894e-7e14f258e9d0.png" width="250" height="250" alt="Mining in Morocco">
 </p>
 
-## About Laravel
+A web-based mining operations management system can help to address several problems that are commonly faced in the mining industry, such as:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+🤝 **Decision Making:**  
+Without proper data analysis and visualization, it can be difficult for mine operators to make informed decisions about where to drill, how to extract minerals, and   how to optimize production. A web-based system can help to provide a comprehensive view of mining operations, including data analysis and visualization capabilities,   to support decision making.  
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+⚡ **Inefficiency:**  
+Without proper management and tracking of mining operations, it can be difficult to identify areas for improvement and optimize production. A web-application system   can help mine operators to better understand and manage their operations, resulting in increased efficiency and productivity. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+🕔 **Long search time and downtime:**  
+Mining equipment is expensive and downtime can be costly. A web application system with functionality to manage new studies and have a global view of the work of all   geologists can help reduce downtime and research.  
 
-## Learning Laravel
+****************************************************
+🔸🔸🔸🔸🔸🔸🔸🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸🔹🔹🔹🔹🔹🔹🔹
+### Requirements:   
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Admin:**    
+ 🔸 can manage geologists (CRUD).  
+ 🔸 can see statistics of geologists.  
+ 🔸 add and manage role for geologist:a field geologist and a laboratory geologist and an office geologist.  
+ 🔸 can see the weather for the next 5 days, before adding a mission (Task) for a geologist [API consumption].  
+ 🔸 can create a task for a geologist.   
+ 🔸 can view the notification when a geologist add her task-file.   
+ 🔸 can see the studiy-files of the geologists.  
+ 
+ **Geologist before has Role:**     
+  🔸 Geologist must be able to create an account.   
+  🔸 can manage his account (add profil image -update all his informations).  
+  🔸 can see statistics of geologists.  
+  🔸 can see all the activities and the possible missions for the 3 roles (field or laboratory or office geologist) in explanation.  
+  🔸 can see all the safety measures to be observed while working at the mine.  
+   
+**Geologist after has Role:**    
+ 🔸 can also view the notification when admin add a task for him.  
+ 🔸 can also add his completed task-files (CRUD).  
+ 
+ 🔸🔸🔸🔸🔸🔸🔸🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸🔹🔹🔹🔹🔹🔹🔹
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Bonus:   
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+*Admin:*  
 
-## Laravel Sponsors
+🔹  can list the task in finalized tasks and tasks in progress  
+🔹 can accept a completed study or ask to redo it.  
+  
+*Geologist:*  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+🔹 can view a notification if the admin accept his task-file or the task redo it
+🔹 must be able to see all the task-files finalized.
+****************************************************
+🔸🔸🔸🔸🔸🔸🔸🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸🔹🔹🔹🔹🔹🔹🔹
 
-### Premium Partners
+**Technologies used:**  
+  
+The system will be built using the following technologies:    
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+✔ HTML for frontend structure and layout.    
+✔ CSS (using the Tailwind framework).    
+✔ JavaScript.    
+✔ ajax , json for data manipulation.    
+✔ PHP (Laravel).    
+✔ MySQL for the database.    
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Tools:**    
+🔹 Trello/Jira.    
+🔹 Figma.    
+🔹 VSCode.      
+🔹 XAMPP.      
+🔹 Git/GitHub.         
