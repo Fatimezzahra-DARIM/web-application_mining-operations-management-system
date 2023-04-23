@@ -43,15 +43,16 @@
                                     <option value="5">Geomatician</option>
                                 </select>
 
+
                         </div>
-                         <div>
-                             <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Assign To</label>
-                             <select class="form-control" id="assignTo" name="user_ids[]" multiple="multiple" style="width: 100%">
-                                {{-- @foreach ($users as $user)
-                                <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                @endforeach --}}
-                            </select>
-                         </div>
+                        <div>
+                            <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Assign To</label>
+                            <select class="form-control" id="assignTo" name="user_ids[]" multiple="multiple" style="width: 100%">
+                               {{-- @foreach ($users as $user)
+                               <option value="{{ $user->id }}">{{ $user->name }}</option>
+                               @endforeach --}}
+                           </select>
+                        </div>
                           <div class="py-6" id="pargraphForms">
                              <div id="row1">
                                  <label for="small-input" class="block mb-3 mt-2 text-sm font-medium text-gray-900 dark:text-white">pargaraph 1</label>
@@ -68,8 +69,7 @@
                                    </svg>
                          </button> --}}
                          {{-- </div> --}}
-                         {{-- <button type="submit">okgdfg</button> --}}
-                         <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Task</button>
+                         <button type="submit">okgdfg</button>
 
                  </form>
              </div>
@@ -131,9 +131,7 @@
 
 
 @push('scripts')
-
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-
    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
    <script>  $("#assignTo").select2({
       tags: false,
@@ -191,7 +189,7 @@
 
 
 
-{{-- @push('cdn') --}}
+
 
 
 

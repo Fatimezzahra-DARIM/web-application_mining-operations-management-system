@@ -54,11 +54,11 @@ class TaskController extends Controller
 public function update(Request $request, Task $task)
 {
     $validatedData = $request->validate([
-        'title' => 'required|string',
-        'description' => 'required|max:255',
-        'user_ids.*' => 'required'
+        'title' => 'string',
+        'description' => 'max:255',
+        'user_ids.*' => ''
     ]);
-
+if($request)
     $task->task_name = $validatedData['title'];
     $task->task_description = $validatedData['description'];
     $task->users()->sync($validatedData['user_ids']);

@@ -37,7 +37,7 @@ public function index()
 
         $weatherData[$city] = json_decode($response->getBody()->getContents());
     }
-
+    
     return view('weather.listing', ['weatherData' => $weatherData]);
 }
 

@@ -119,9 +119,6 @@
                             <input type="title" name="title" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="" required>
                         </div>
                         <div>
-
-
-                                    {{-- @method('PUT') --}}
                                <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a Role</label>
                                <select id="role_id"   name="role_id"
                                class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -135,27 +132,17 @@
                         <div>
                             <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Assign To</label>
                             <select class="form-control" id="assignTo" name="user_ids[]" multiple="multiple" style="width: 100%">
-                               {{-- @foreach ($users as $user)
-                               <option value="{{ $user->id }}">{{ $user->name }}</option>
-                               @endforeach --}}
+                                <option value=""></option>
                            </select>
                         </div>
                          <div class="py-6" id="pargraphForms">
                             <div id="row1">
-                                <label for="small-input" class="block mb-3 mt-2 text-sm font-medium text-gray-900 dark:text-white">pargaraph 1</label>
+                                <label for="small-input" class="block mb-3 mt-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
                                <textarea name="description" id="description" class="w-full block rounded-lg h-56 overflow-x-hidden overflow-y-auto border border-gray-300 bg-gray-50">
                                 </textarea>
                             </div>
                         </div>
-                        {{-- <div class="flex items-center gap-2">
-                            <label class="font-medium text-sm text-gray-900 dark:text-white">Add paragraph</label>
-                            <button class="flex rounded-lg  text-black items-center justify-center addParagr"
-                            type="button" onclick="add_parag()">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                                  </svg>
-                        </button> --}}
-                        {{-- </div> --}}
+
                         {{-- <button type="submit">okgdfg</button> --}}
                         <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update Task</button>
 
@@ -175,7 +162,7 @@
             Manage Tasks
         </h1>
         <!--Table-->
-        <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
+        {{-- <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
             @if (session('success'))
             <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-zinc-700 dark:text-green-400" role="alert">
             {{ session('success') }}
@@ -217,24 +204,86 @@
 
 
 
-        </div>
+        </div> --}}
         <!--/Card-->
+        <div class="p-6">
+            <div class="flex justify-end mb-4">
+                <input type="text" name="search" id="search" class="w-full border-gray-400 focus:border-indigo-500 focus:outline-none rounded-md p-2" placeholder="Search...">
+            </div>
+            <div class="overflow-x-auto">
+                <div class="inline-block min-w-full overflow-hidden">
+                    <table class="min-w-full leading-normal">
+                        <thead>
+                            <tr>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Title</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Description</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Admin Name</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Status</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Update Task</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Delete Task</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($tasks as $task)
+                            <tr>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">{{ $task->task_name }}</p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">{{ $task->task_description }}</p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">{{ $task->admin->name }}</p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                        <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                                        <span class="relative text-xs">Active,{{ $task->status }}</span>
+                                    </span>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-900"><button onclick="prepareToUpdated({{ $task->id}},`{{$task->task_name }}`,`{{$task->task_description }}`,{{$task->users[0]->roles()->first()->id}},{{$task->users}})" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Update Task</button></a>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <a href="#" class="text-red-600 hover:text-red-900"><form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                       <button type="submit" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Delete</button>
+                                       </form></a>
+                                </td>
+                            </tr>
+                            @endforeach
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+        </div>
 
 
     </div>
     <!--/container-->
 </div>
-@endsection
+
 
 
 
 
     <!-- jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    <!--Datatables -->
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#assignTo').select2({
+        tags: false,
+        tokenSeparators: [',']
+    });
+});
+</script>
+
     <script>
 
         function prepareToUpdated(id,title,description,role_id,users){
@@ -246,23 +295,29 @@
             inputTitle.value = title;
             selectRole.value = role_id;
             inputDescription.value = description;
-            populateSelect2(users);
+
+            // populateSelect2(users);
+            var n=[]
+            users.forEach(element => {
+                n.push(element.id)
+            })
+
+            $('#assignTo').val(n).trigger('change.select2');
         };
+
         function populateSelect2(data) {
             $('#assignTo').empty();
-            // console.log($('#assignTo'));
+            console.log($('#assignTo'));
             $.each(data, function(index, value) {
                 var option = new Option(value.name, value.id);
-                $('#assignTo').append(option);
+                console.log(option)
+                $('#assignTo').val(value.id);
             });
+            // $('#assignTo').val(data)
         }
-        //  $(document).ready(function () {
 
-        //     var table = $('#example').DataTable({
-        //         responsive: true
-        //     })
-        //     .columns.adjust()
-        //         .responsive.recalc();
-        //     });
     </script>
 
+
+
+@endsection
