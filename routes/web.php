@@ -87,7 +87,7 @@ Route::middleware([
 
     Route::get('/get-users-by-role/{roleId}', [GeologistController::class,'getUsersByRole']);
     Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
-    Route::put('/tasks', [TaskController::class, 'update'])->name('tasks.update');
+    Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
     Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 
 
@@ -108,7 +108,17 @@ Route::middleware([
 
     // Add more routes for the 'geologist' role here
 });
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    'role:geologist' // Only users with the 'admin' role can access these routes
+])->group(function () {
+    Route::get('/geologist', function () {
+        return view('template/geologistDashboard/layout/index');
+    })->name('geologist');
 
+});
 
 
 // Route::prefix('admin')->middleware('auth')->group(function () {

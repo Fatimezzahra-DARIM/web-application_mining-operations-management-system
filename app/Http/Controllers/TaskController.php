@@ -56,11 +56,14 @@ public function update(Request $request, Task $task)
     $validatedData = $request->validate([
         'title' => 'string',
         'description' => 'max:255',
-        'user_ids.*' => ''
+        'user_ids.*' => 'required',
+        'role_id'=> 'required'
     ]);
+
 if($request)
     $task->task_name = $validatedData['title'];
     $task->task_description = $validatedData['description'];
+    $task->users()->detach();
     $task->users()->sync($validatedData['user_ids']);
     $task->save();
 

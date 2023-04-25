@@ -110,10 +110,10 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white"> Tasks</h3>
-                <form class="space-y-6" action="{{ route('tasks.update') }}" method="POST">
+                <form class="space-y-6"  method="POST" id="formUpdatetasks">
                     @csrf
                     @method('PUT')
-                    <input id="updatedTaskFormInput" type="text" name="user_id" value="">
+                    {{-- <input id="updatedTaskFormInput" type="text" name="task_id" value=""> --}}
                          <div>
                             <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
                             <input type="title" name="title" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="" required>
@@ -122,7 +122,7 @@
                                <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a Role</label>
                                <select id="role_id"   name="role_id"
                                class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                   <option selected >Choose a role</option>
+                                   <option  >Choose a role</option>
                                    <option value="3">Field Geologist</option>
                                    <option value="4">Laboratory Geologist</option>
                                    <option value="5">Geomatician</option>
@@ -285,36 +285,78 @@ $(document).ready(function() {
 </script>
 
     <script>
+        $(document).ready(function() {
+  $('#role_id').on('change', function() { $('#assignTo').val(null).trigger('change');
+            var roleId = $(this).val();
 
-        function prepareToUpdated(id,title,description,role_id,users){
-            input = document.getElementById('updatedTaskFormInput');
+            $.ajax({
+                url: '/get-users-by-role/' + roleId,
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    var options = '';
+
+                    $.each(response, function(index, user) {
+                        options += '<option value="' + user.id + '">' + user.name + '</option>';
+                    });
+
+                    $('#assignTo').html(options);
+                },
+                error: function() {
+                    console.log('Error retrieving users');
+                }
+            });
+  });
+
+});
+
+ function prepareToUpdated(id,title,description,role_id,users){
+
+            // input = document.getElementById('updatedTaskFormInput');
             inputTitle = document.getElementById('title');
             selectRole = document.getElementById('role_id');
             inputDescription = document.getElementById('description');
-            input.value = id;
+            // input.value = id;
             inputTitle.value = title;
             selectRole.value = role_id;
-            inputDescription.value = description;
+            var url=window.location.origin+"/tasks/"+id;
+    $('#formUpdatetasks').attr('action',url)
 
-            // populateSelect2(users);
-            var n=[]
-            users.forEach(element => {
-                n.push(element.id)
-            })
+              var user=[];
+            for (let i = 0; i < users.length; i++) {
+                user.push(users[i].id);
+                }
+            $.ajax({
+                url: '/get-users-by-role/' + role_id,
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                var options = '';
+                $.each(response, function(index, user) {
+                    options += '<option value="' + user.id + '">' + user.name + '</option>';
+                });
+                $('#assignTo').html(options).val(user).trigger('change');
+                },
+                error: function() {
+                console.log('Error retrieving users');
+                }
+            });
 
-            $('#assignTo').val(n).trigger('change.select2');
+           inputDescription.value = description;
+
+
         };
 
-        function populateSelect2(data) {
-            $('#assignTo').empty();
-            console.log($('#assignTo'));
-            $.each(data, function(index, value) {
-                var option = new Option(value.name, value.id);
-                console.log(option)
-                $('#assignTo').val(value.id);
-            });
+        // function populateSelect2(data) {
+        //     $('#assignTo').empty();
+        //     console.log($('#assignTo'));
+        //     $.each(data, function(index, value) {
+        //         var option = new Option(value.name, value.id);
+        //         console.log(option)
+        //         $('#assignTo').val(value.id);
+        //     });
             // $('#assignTo').val(data)
-        }
+        // }
 
     </script>
 
