@@ -61,11 +61,11 @@ Route::middleware([
     'verified',
     'role:admin' // Only users with the 'admin' role can access these routes
 ])->group(function () {
-    // Route::get('/dashboard', function () {
-    //     dd('hi');
-    //             return view('template/adminDashboard/contents/dashboard');
-    //             // return view('dashboard');
-    //         })->name('dashboard');
+    Route::get('/dashboard', function () {
+        // dd('hi');
+                return view('template/adminDashboard/contents/dashboard');
+                // return view('dashboard');
+            })->name('dashboard');
     Route::get('/admin', function () {
         return view('template/adminDashboard/layout/index');
     })->name('admin');

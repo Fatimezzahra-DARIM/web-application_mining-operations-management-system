@@ -51,6 +51,9 @@
                     @hasrole('geologist')
                         <a href="{{ url('/geologist/dashboard') }}" class="text-sm text-white underline">Geologist dqshbo</a>
                     @endhasrole
+                    @hasrole('admin')
+                    <a href="{{ url('/admin/dashboard') }}" class="text-sm text-white underline">Admin dashboard</a>
+                @endhasrole
                     @else
                         <a href="{{ route('login') }}"
                             class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-100 md:p-0 md:dark:hover:text-orange-100 dark:text-orange-200 dark:hover:bg-gray-700 dark:hover:text-orange-200 md:dark:hover:bg-transparent dark:border-gray-700">Sign In</a>

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use App\Models\User;
+use App\Mail\TaskMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class TaskController extends Controller
 {
@@ -37,9 +39,14 @@ class TaskController extends Controller
         $task->task_name = $validatedData['title'];
         $task->task_description = $validatedData['description'];
         $task->admin_id=$id_Admin;
-          $task->save();
+        $task->save();
         foreach($validatedData['user_ids'] as $userId){
             $task->users()->attach($userId);
+        }
+        foreach($validatedData['user_ids'] as $userId){
+            $user_email = User::find($userId)->email;
+            // dd($user_email);
+            Mail::to($user_email)->send(new TaskMail());
         }
 
 
