@@ -38,7 +38,7 @@ class CreateNewUser implements CreatesNewUsers
         // dd($role);
         $user->assignRole($role);
         // Add role relationship to the model_has_roles table
-        $user->roles()->sync([$role->id]);
+        
         return $user;
     }
 }

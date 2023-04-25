@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- CDN flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
     <!-- icon CDN -->
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 <!-- Style card -->
   <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet">
-    
+
 </head>
 <body class=" bg-orange-200"  >
   <!-- Navbar  -->
@@ -48,24 +48,26 @@
               @if (Route::has('login'))
                 <div class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-zinc-700 md:dark:bg-zinc-700 dark:border-zinc-700">
                     @auth
-                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+                    @hasrole('geologist')
+                        <a href="{{ url('/geologist/dashboard') }}" class="text-sm text-white underline">Geologist dqshbo</a>
+                    @endhasrole
                     @else
                         <a href="{{ route('login') }}"
                             class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-100 md:p-0 md:dark:hover:text-orange-100 dark:text-orange-200 dark:hover:bg-gray-700 dark:hover:text-orange-200 md:dark:hover:bg-transparent dark:border-gray-700">Sign In</a>
                     @if (Route::has('register'))
-                    
+
                         <a href="{{ route('register') }}"
                             class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-100 md:p-0 md:dark:hover:text-orange-100 dark:text-orange-200 dark:hover:bg-gray-700 dark:hover:text-orange-200 md:dark:hover:bg-transparent dark:border-gray-700">Sign Up</a>
                     @endif
                     @endauth
-                   
+
                 </div>
                 @endif
             </div>
         </div>
     </nav>
 
-    
+
     <!-- ///////////////////////////// -->
     <div id="default-carousel" class="relative w-full" data-carousel="slide">
         <!-- Carousel wrapper -->
@@ -164,7 +166,7 @@
             </div>
         </main>
         <figure class=" transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
-            
+
             <div class="flex justify-around justify-items-center" >
                 <!-- <a href="#"> -->
                     <img class="rounded-lg" src="{{asset('images/values.png')}}" alt="image description" style="width: 30%;">
@@ -172,7 +174,7 @@
                 <p class="text-orange-200 dark:text-orange-300 flex justify-center items-center text-2xl italic ">Unearthing the wealth of Morocco's earth, with integrity and expertise.</p>
             </div>
         </figure>
-    
+
         </div>
 
 <h1 class="text-4xl font-bold tracking-tight text-center text-gray-900 dark:text-zinc-700">Our Products</h1>
@@ -232,7 +234,7 @@
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Fluorite is used to make glass, glass fibres and ceramic enamel.
         Fluorite is present in microscopes,telescopes and spectrographs.
         Metallurgical Fluorite increases the strength of cement and stops it from cracking.</p>
-        
+
     </div>
 </div>
 <!-- ///////////////////////////////////////////// -->
@@ -250,7 +252,7 @@
         <img src="{{asset('images/new/cobalt2.jpg')}}"
           class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
       </div>
-      
+
     </div>
     <!-- Slider controls -->
     <button type="button"
@@ -364,7 +366,7 @@
         <img src="{{asset('images/new/silver2.jpg')}}"
           class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
       </div>
-  
+
     </div>
     <!-- Slider controls -->
     <button type="button"

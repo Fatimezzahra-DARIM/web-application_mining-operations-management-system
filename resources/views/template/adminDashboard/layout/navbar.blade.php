@@ -14,7 +14,7 @@
                     </svg>
                 </button>
 
-                    
+
                     <a href="#" class="flex ml-2 md:mr-24">
                         <img src="{{asset('images/new/MMLogo.png')}}" class="h-8 mr-3" alt="Mining In Morocco Logo" />
                         <span  class="text-transparent bg-clip-text bg-gradient-to-r to-amber-500 from-amber-50">Mining In Morocco</span>
@@ -37,7 +37,7 @@
                     </form> --}}
                 </div>
                 <div class="flex items-center">
-                    
+
                     <!-- Search mobile -->
                     {{-- <button id="toggleSidebarMobileSearch" type="button"
                         class="p-2 text-gray-500 rounded-lg lg:hidden hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
@@ -370,7 +370,7 @@
                                   <!-- Authentication =>Sign out -->
                                     <form method="POST" action="{{ route('logout') }}" x-data>
                                         @csrf
-                                        <button type="submit" role="menuitem" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">Sign Out</button> 
+                                        <button type="submit" role="menuitem" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">Sign Out</button>
                                     </form>
                                 </li>
                             </ul>

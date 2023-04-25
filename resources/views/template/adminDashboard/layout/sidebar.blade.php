@@ -16,8 +16,9 @@
                 </a>
             </li>
             {{-- ///// --}}
+            @hasrole('geologist')
             <li>
-                <a href="#"
+                <a href="{{route('about')}}"
                     class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-orange-200  group">
                     <svg aria-hidden="true"
                         class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white dark:text-gray-400"
@@ -83,8 +84,11 @@
                                   </li>
                             </ul>
                          </li>
+                         @endhasrole
                         {{-- /////// --}}
-            <li>
+
+                        @hasrole('admin')
+                        <li>
                 <a href="{{route('kanban')}}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-orange-200  hover:bg-gray-100 dark:hover:bg-gray-700">
                     <svg aria-hidden="true"
@@ -173,6 +177,7 @@
                     <span class="ml-3">Weather and Add Task</span>
                 </a>
             </li>
+            @endhasrole
         </ul>
     </div>
 </aside>

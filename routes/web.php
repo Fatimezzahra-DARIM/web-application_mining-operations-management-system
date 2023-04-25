@@ -21,25 +21,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('template/adminDashboard/contents/dashboard');
-        // return view('dashboard');
-    })->name('dashboard');
-    // Route::get('/manage', function () {
-    //     return view('template/adminDashboard/contents/tableGeologists');
-    //     // return view('dashboard');
-    // })->name('manage');
-    Route::get('/manage', [GeologistController::class,'index'])->name('manage');
-    Route::delete('/geologists/{geologist}', [GeologistController::class, 'deleteGeologist'])->name('geologists.destroy');
-    // Route::put('/geologists', [GeologistController::class, 'updateRole'])->name('updateRole');
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('template/adminDashboard/contents/dashboard');
+//         // return view('dashboard');
+//     })->name('dashboard');
+//     // Route::get('/manage', function () {
+//     //     return view('template/adminDashboard/contents/tableGeologists');
+//     //     // return view('dashboard');
+//     // })->name('manage');
+//     Route::get('/manage', [GeologistController::class,'index'])->name('manage');
+//     Route::delete('/geologists/{geologist}', [GeologistController::class, 'deleteGeologist'])->name('geologists.destroy');
+//     // Route::put('/geologists', [GeologistController::class, 'updateRole'])->name('updateRole');
 
 
-});
+// });
     //
 
 // Route::middleware([
@@ -61,6 +61,11 @@ Route::middleware([
     'verified',
     'role:admin' // Only users with the 'admin' role can access these routes
 ])->group(function () {
+    // Route::get('/dashboard', function () {
+    //     dd('hi');
+    //             return view('template/adminDashboard/contents/dashboard');
+    //             // return view('dashboard');
+    //         })->name('dashboard');
     Route::get('/admin', function () {
         return view('template/adminDashboard/layout/index');
     })->name('admin');
@@ -73,52 +78,101 @@ Route::middleware([
 
     Route::get('/kanban', [TaskController::class,'index'])->name('kanban');
     Route::delete('/geologists/{geologist}', [GeologistController::class, 'deleteGeologist'])->name('geologists.destroy');
-    // Route::get('/weather', 'WeatherController@fetchWeatherData')->name('weather');
-    // Route::get('/weather', [WeatherController::class,'fetchWeatherData'])->name('weather');
     Route::get('/weather', [WeatherController::class,'index'])->name('weather');
     Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
-    // Route::get('/get-users-by-role/{roleId}', function($roleId) {
-    //     $users = App\User::whereHas('roles', function($query) use ($roleId) {
-    //         $query->where('id', $roleId);
-    //     })->get();
-
-    //     return response()->json($users);
-    // });
-
     Route::get('/get-users-by-role/{roleId}', [GeologistController::class,'getUsersByRole']);
     Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
     Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
     Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+///////////////////////////Tesst /////////////////////
+//    //Route of page about us
+//    Route::get('/geologist', function () {
+//     return view('template/geologistDashboard/about');
+// })->name('about');
+//  //Routes of security rules of all geologist
+// Route::get('/geologist/dashboard/f', function () {
+//     return view('template/geologistDashboard/fgeo');
+// })->name('fgeologist_dashboard');
 
+// Route::get('/geologist/dashboard/i', function () {
+//     return view('template/geologistDashboard/igeo');
+// })->name('igeologist_dashboard');
+
+// Route::get('/geologist/dashboard/l', function () {
+//     return view('template/geologistDashboard/lgeo');
+// })->name('lgeologist_dashboard');
+// //Routes of the activities and missions of all geologist
+
+// Route::get('/geologist/dashboard/miss1', function () {
+//     return view('template/geologistDashboard/miss1');
+// })->name('fmiss_dashboard');
+
+// Route::get('/geologist/dashboard/miss2', function () {
+//     return view('template/geologistDashboard/miss2');
+// })->name('imiss_dashboard');
+// Route::get('/geologist/dashboard/miss3', function () {
+//     return view('template/geologistDashboard/miss3');
+// })->name('lmiss_dashboard');
 
 });
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-    'role:geologist' // Only users with the 'geologist' role can access these routes
+    'role:geologist'
+ // Only users with the 'geologist' role can access these routes
 ])->group(function () {
-    Route::get('/geologist', function () {
-        return view('template/geologistDashboard/layout/index');
-    })->name('geologist');
+    // Route::get('/admin/dashboard', function () {
+    //     return view('template/adminDashboard/contents/dashboard');
+    // })->name('admin_dashboard');
 
     Route::get('/geologist/dashboard', function () {
-        return view('template/geologistDashboard/contents/dashboard');
-    })->name('geologist_dashboard');
-
-    // Add more routes for the 'geologist' role here
-});
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-    'role:geologist' // Only users with the 'admin' role can access these routes
-])->group(function () {
-    Route::get('/geologist', function () {
-        return view('template/geologistDashboard/layout/index');
+        return view('template/geologistDashboard/dashboard');
     })->name('geologist');
 
+    Route::get('/geologist', function () {
+        return view('template/adminDashboard/layout/index');
+    })->name('geologist');
+    //Route of page about us
+    Route::get('/geologist', function () {
+        return view('template/geologistDashboard/about');
+    })->name('about');
+     //Routes of security rules of all geologist
+    Route::get('/geologist/dashboard/f', function () {
+        return view('template/geologistDashboard/fgeo');
+    })->name('fgeologist_dashboard');
+
+    Route::get('/geologist/dashboard/i', function () {
+        return view('template/geologistDashboard/igeo');
+    })->name('igeologist_dashboard');
+
+    Route::get('/geologist/dashboard/l', function () {
+        return view('template/geologistDashboard/lgeo');
+    })->name('lgeologist_dashboard');
+    //Routes of the activities and missions of all geologist
+
+    Route::get('/geologist/dashboard/miss1', function () {
+        return view('template/geologistDashboard/miss1');
+    })->name('fmiss_dashboard');
+
+    Route::get('/geologist/dashboard/miss2', function () {
+        return view('template/geologistDashboard/miss2');
+    })->name('imiss_dashboard');
+    Route::get('/geologist/dashboard/miss3', function () {
+        return view('template/geologistDashboard/miss3');
+    })->name('lmiss_dashboard');
 });
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+//     'role:geologist' // Only users with the 'admin' role can access these routes
+// ])->group(function () {
+//     Route::get('/geologist', function () {
+//         return view('template/geologistDashboard/layout/index');
+//     })->name('geologist');
+
+// });
 
 
 // Route::prefix('admin')->middleware('auth')->group(function () {
