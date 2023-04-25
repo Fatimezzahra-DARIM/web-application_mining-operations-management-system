@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activities and Missions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
+@extends('.template.adminDashboard.layout.index')
+@section('title')  About Us
+
+@endsection
+@section('content')
   <div class="flex flex-col md:flex-row">
     <div class="w-full md:w-1/2">
         <p class="ml-4 md:ml-16 mb-3 text-gray-500 dark:text-gray-400 first-line:uppercase first-line:tracking-widest first-letter:text-7xl first-letter:font-bold first-letter:text-gray-900 dark:first-letter:text-gray-100 first-letter:mr-3 first-letter:float-left">About us</p>
@@ -19,14 +14,11 @@
         </blockquote>
     </div>
     <div class="w-full md:w-1/2 flex justify-center items-center">
-        <img src="../../../../public/images/me.jpg" alt="your-image-alt" class="max-w-full max-h-96 md:mr-16 mt-2 rounded">
+        <img src="{{asset('images/me.jpg')}}" alt="your-image-alt" class="max-w-full max-h-96 md:mr-16 mt-2 rounded">
     </div>
 </div>
 
 
 
 
-</body>
-
-
-</html>
+@endsection

@@ -47,13 +47,13 @@
                     </button>
                     <ul id="dropdown-example" class="hidden py-2 space-y-2">
                           <li>
-                             <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-orange-200 dark:hover:bg-gray-700">Field Geologist</a>
+                             <a href="{{route('fmiss_dashboard')}}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-orange-200 dark:hover:bg-gray-700">Field Geologist</a>
                           </li>
                           <li>
-                             <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-orange-200 dark:hover:bg-gray-700">Laboratory Geologist</a>
+                             <a href="{{route('lmiss_dashboard')}}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-orange-200 dark:hover:bg-gray-700">Laboratory Geologist</a>
                           </li>
                           <li>
-                             <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-orange-200 dark:hover:bg-gray-700">Office Geologist</a>
+                             <a href="{{route('imiss_dashboard')}}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-orange-200 dark:hover:bg-gray-700">Office Geologist</a>
                           </li>
                     </ul>
                  </li>
@@ -74,13 +74,13 @@
                             </button>
                             <ul id="dropdown-example1" class="hidden py-2 space-y-2">
                                   <li>
-                                     <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-orange-200 dark:hover:bg-gray-700">Field Geologist</a>
+                                     <a href="{{route('fgeologist_dashboard')}}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-orange-200 dark:hover:bg-gray-700">Field Geologist</a>
                                   </li>
                                   <li>
-                                     <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-orange-200 dark:hover:bg-gray-700">Laboratory Geologist</a>
+                                     <a href="{{route('lgeologist_dashboard')}}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-orange-200 dark:hover:bg-gray-700">Laboratory Geologist</a>
                                   </li>
                                   <li>
-                                     <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-orange-200 dark:hover:bg-gray-700">Office Geologist</a>
+                                     <a href="{{route('igeologist_dashboard')}}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-orange-200 dark:hover:bg-gray-700">Office Geologist</a>
                                   </li>
                             </ul>
                          </li>

@@ -157,10 +157,10 @@ Route::middleware([
 
     Route::get('/geologist/dashboard/miss2', function () {
         return view('template/geologistDashboard/miss2');
-    })->name('imiss_dashboard');
+    })->name('lmiss_dashboard');
     Route::get('/geologist/dashboard/miss3', function () {
         return view('template/geologistDashboard/miss3');
-    })->name('lmiss_dashboard');
+    })->name('imiss_dashboard');
 });
 // Route::middleware([
 //     'auth:sanctum',

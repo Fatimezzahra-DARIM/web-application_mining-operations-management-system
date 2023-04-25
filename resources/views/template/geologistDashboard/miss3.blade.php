@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activities and Missions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-<!--Title-->
+@extends('.template.adminDashboard.layout.index')
+@section('title')     Activities and Missions
+
+@endsection
+@section('content')
 <h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">
     Activities and Missions
 </h1>
@@ -35,5 +29,4 @@
     <li>Producing geological maps, digital terrain models, and detailed reports to inform decisions regarding resource management, land use planning, and public safety.</li>
 </ul>
 
-</body>
-</html>
+@endsection

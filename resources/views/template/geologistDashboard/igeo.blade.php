@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Rules</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-<!--Title-->
+@extends('.template.adminDashboard.layout.index')
+@section('title')  Security Rules
+
+@endsection
+@section('content')
 <h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">
     Security Rules
 </h1>
@@ -23,5 +17,4 @@
 </ol>
 <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-dark">It is important to follow these safety rules to minimize the risk of accidents in geological offices and computer environments.</h2>
 
-</body>
-</html>
+@endsection
