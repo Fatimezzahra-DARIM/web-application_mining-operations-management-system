@@ -48,9 +48,14 @@
               @if (Route::has('login'))
                 <div class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-zinc-700 md:dark:bg-zinc-700 dark:border-zinc-700">
                     @auth
-                    @hasrole('geologist')
-                        <a href="{{ url('/geologist/dashboard') }}" class="text-sm text-white underline">Geologist dqshbo</a>
-                    @endhasrole
+                    {{-- @php
+   dd(auth()->user()->roles)
+                    @endphp --}}
+
+                    @role('geologist|field-geologist|laboratory-geologist|office-geologist')
+                        <a href="{{ url('/geologist/dashboard') }}" class="text-sm text-white underline">Geologist dashboard</a>
+
+                    @endrole
                     @hasrole('admin')
                     <a href="{{ url('/admin/dashboard') }}" class="text-sm text-white underline">Admin dashboard</a>
                 @endhasrole

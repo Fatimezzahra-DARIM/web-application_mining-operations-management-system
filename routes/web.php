@@ -79,6 +79,7 @@ Route::middleware([
     Route::get('/kanban', [TaskController::class,'index'])->name('kanban');
     Route::delete('/geologists/{geologist}', [GeologistController::class, 'deleteGeologist'])->name('geologists.destroy');
     Route::get('/weather', [WeatherController::class,'index'])->name('weather');
+
     Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
     Route::get('/get-users-by-role/{roleId}', [GeologistController::class,'getUsersByRole']);
     Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
@@ -119,7 +120,7 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-    'role:geologist'
+    'role:geologist|field-geologist|laboratory-geologist|office-geologist'
  // Only users with the 'geologist' role can access these routes
 ])->group(function () {
     // Route::get('/admin/dashboard', function () {
@@ -129,7 +130,7 @@ Route::middleware([
     Route::get('/geologist/dashboard', function () {
         return view('template/geologistDashboard/dashboard');
     })->name('geologist');
-
+    Route::get('/task', [TaskController::class,'task'])->name('task');
     Route::get('/geologist', function () {
         return view('template/adminDashboard/layout/index');
     })->name('geologist');

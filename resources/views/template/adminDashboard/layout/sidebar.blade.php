@@ -16,7 +16,7 @@
                 </a>
             </li>
             {{-- ///// --}}
-            @hasrole('geologist')
+            @role('geologist|field-geologist|laboratory-geologist|office-geologist')
             <li>
                 <a href="{{route('about')}}"
                     class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-orange-200  group">
@@ -84,7 +84,21 @@
                                   </li>
                             </ul>
                          </li>
-                         @endhasrole
+                         <li>
+                            <a href="{{route('task')}}"
+                                class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-orange-200  group">
+                                <svg aria-hidden="true"
+                                    class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                                    <path fill-rule="evenodd"
+                                        d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="ml-3">Task to do</span>
+                            </a>
+                        </li>
+                         @endrole
                         {{-- /////// --}}
 
                         @hasrole('admin')
@@ -99,8 +113,6 @@
                         </path>
                     </svg>
                     <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
-                    <span
-                        class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
                 </a>
             </li>
 
@@ -117,9 +129,9 @@
                             d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z">
                         </path>
                     </svg>
-                    <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
-                    <span
-                        class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">Task Files</span>
+                    {{-- <span
+                        class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span> --}}
                 </a>
             </li>
             <li>
@@ -131,27 +143,14 @@
                         <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
                             clip-rule="evenodd"></path>
                     </svg>
-                    <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">Manage Users</span>
                 </a>
             </li>
         </ul>
-        <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
+        <ul class="pt-2 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
 
-            <li>
-                <a href="#"
-                    class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-orange-200  group">
-                    <svg aria-hidden="true"
-                        class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
-                        <path fill-rule="evenodd"
-                            d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    <span class="ml-3">Documentation</span>
-                </a>
-            </li>
-            <li>
+
+            {{-- <li>
                 <a href="#"
                     class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-orange-200  group">
                     <svg aria-hidden="true"
@@ -163,7 +162,7 @@
                     </svg>
                     <span class="ml-3">Components</span>
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="{{route('weather')}}"
                     class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-orange-200  group">

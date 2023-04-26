@@ -27,6 +27,17 @@ class TaskController extends Controller
         return view('template/adminDashboard/contents/tableTasks', ['tasks'=>$tasks]);
         // return view('template/adminDashboard/contents/tableTasks', ['tasks'=>$tasks, 'adminName'=>$adminName]);
     }
+    public function task()
+    {
+        $user=Auth::user();
+
+        $user = User::with('tasks')->find($user->id);
+
+        return view('template/geologistDashboard/file', ['tasks'=>$user->tasks]);
+
+    }
+
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
