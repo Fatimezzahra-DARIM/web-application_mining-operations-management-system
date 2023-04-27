@@ -136,6 +136,8 @@ Route::middleware([
         return view('template/geologistDashboard/miss3');
     })->name('imiss_dashboard');
     Route::post('/files', [TaskFileController::class, 'store'])->name('files.store');
+    Route::put('taskFile/{taskFile}', [TaskFileController::class, 'update'])->name('files.update');
+
 
 
 });

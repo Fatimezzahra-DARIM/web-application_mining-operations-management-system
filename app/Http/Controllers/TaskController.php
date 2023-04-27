@@ -31,9 +31,16 @@ class TaskController extends Controller
     {
         $user=Auth::user();
 
-        $user = User::with('tasks')->find($user->id);
-
-        return view('template/geologistDashboard/file', ['tasks'=>$user->tasks]);
+        // $user = User::with('tasks.taskFile')->find($user->id);
+        $tasks = Task::whereHas('users', function ($query) {
+            $query->where('user_id', auth()->user()->id);
+        })
+        ->with(['taskFile' => function($query) {
+            $query->where('user_id', auth()->user()->id);
+        }, 'taskFile.user'])
+        ->get();
+        // dd($tasks);
+        return view('template/geologistDashboard/file', ['tasks'=>$tasks]);
 
     }
 

@@ -94,19 +94,23 @@ class TaskFileController extends Controller
     public function update(Request $request, TaskFile $taskFile)
     {
         $validatedData = $request->validate([
-            'description' => 'required',
+            'description' => 'string',
             'pdf' => 'nullable|mimes:pdf|max:2048',
-            'task_id' => 'required|exists:tasks,id',
         ]);
 
-        $taskFile->description = $validatedData['description'];
-        $taskFile->task_id = $validatedData['task_id'];
+        if ($request->description) {
+            $taskFile->description = $validatedData['description'];
+        }
         if ($request->hasFile('pdf')) {
-            $taskFile->file_path = $request->file('pdf')->store('pdfs');
+            $pdf = $validatedData['pdf'];
+            $pdfName = $pdf->getClientOriginalName();
+            $pdfPath = $pdf->storeAs('pdfs', $pdfName);
+
+            // Update the task with the PDF file path
+            $taskFile->file_path = $pdfPath;
         }
         $taskFile->save();
-
-        return redirect()->route('task_files.index')->with('success', 'Task file updated successfully.');
+        return redirect()->back()->with('success', 'Task file updated successfully.');
     }
 
     /**
