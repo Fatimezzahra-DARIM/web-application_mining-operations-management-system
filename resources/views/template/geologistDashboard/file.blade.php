@@ -17,14 +17,15 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white"> Add File Task</h3>
-                <form class="space-y-6" action="{{ route('tasks.store') }}" method="POST">
+                <form class="space-y-6" action="{{ route('files.store') }}" method="POST" enctype="multipart/form-data">
                           @csrf
+                          <input type="text" name="task_id" id="task_id" >
                           <div class="mb-4">
-                            <label class="block text-gray-700 font-bold mb-2" for="description">
+                            <label class="block text-gray-700 font-bold mb-2 dark:text-white" for="description">
                               Description
                             </label>
                             <textarea
-                              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none  focus:shadow-outline"
                               id="description"
                               name="description"
                               placeholder="Enter a description..."
@@ -32,18 +33,17 @@
                             ></textarea>
                           </div>
                           <div class="mb-4">
-                            <label class="block text-gray-700 font-bold mb-2" for="pdf">
+                            <label class="block text-gray-700 font-bold mb-2 dark:text-white" for="pdf">
                               Upload PDF
                             </label>
                             <input
-                              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:text-white"
                               id="pdf"
                               name="pdf"
                               type="file"
                             />
                           </div>
-                        
-                        {{-- <button type="submit">okgdfg</button> --}}
+
                         <div class="flex justify-center">
                         <button
                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -87,7 +87,7 @@
 
                     @endforeach
                 </td>
-                <td> <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Add File</button></td>
+                <td> <button onclick="generateTaskId({{$task->id}})" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Add File</button></td>
                 <td><button type="" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Task doing</button></td>
                 <td class="px-5 py-5 border-b border-gray-200  text-sm">
                     <a href="#" class="text-indigo-600 hover:text-indigo-900"><button onclick="" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Update File</button></a>
@@ -131,6 +131,11 @@ $(document).ready(function() {
         .columns.adjust()
         .responsive.recalc();
 });
+
+function generateTaskId(id){
+    let input = document.getElementById('task_id');
+    input.value=id;
+}
 </script>
 
 @endsection

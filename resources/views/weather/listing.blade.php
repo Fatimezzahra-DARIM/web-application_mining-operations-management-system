@@ -23,14 +23,36 @@
              </button>
              <div class="px-6 py-6 lg:px-8">
                  <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white"> Add File Task</h3>
-                 <form class="space-y-6" action="" method="POST">
+                 <form class="space-y-6" action="{{ route('tasks.store') }}" method="POST">
                            @csrf
 
                           <div>
-                             <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                             <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
                              <input type="title" name="title" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="" required>
                          </div>
+                         <div>
 
+
+                                     {{-- @method('PUT') --}}
+                                <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a Role</label>
+                                <select id="role"   name="role_id"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option selected >Choose a role</option>
+                                    <option value="3">Field Geologist</option>
+                                    <option value="4">Laboratory Geologist</option>
+                                    <option value="5">Geomatician</option>
+                                </select>
+
+
+                        </div>
+                        <div>
+                            <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Assign To</label>
+                            <select class="form-control" id="assignTo" name="user_ids[]" multiple="multiple" style="width: 100%">
+                               {{-- @foreach ($users as $user)
+                               <option value="{{ $user->id }}">{{ $user->name }}</option>
+                               @endforeach --}}
+                           </select>
+                        </div>
                           <div class="py-6" id="pargraphForms">
                              <div id="row1">
                                  <label for="small-input" class="block mb-3 mt-2 text-sm font-medium text-gray-900 dark:text-white">pargaraph 1</label>
@@ -38,10 +60,16 @@
                                  </textarea>
                              </div>
                          </div>
-
-
+                         {{-- <div class="flex items-center gap-2">
+                             <label class="font-medium text-sm text-gray-900 dark:text-white">Add paragraph</label>
+                             <button class="flex rounded-lg  text-black items-center justify-center addParagr"
+                             type="button" onclick="add_parag()">
+                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                   </svg>
+                         </button> --}}
+                         {{-- </div> --}}
                          {{-- <button type="submit">okgdfg</button> --}}
-
                          <div class="flex justify-center">
                             <button
                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
