@@ -75,4 +75,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class, 'admin_id');
     }
+
+    public function taskFile(){
+        return $this->hasMany(TaskFile::class);
+    }
 }

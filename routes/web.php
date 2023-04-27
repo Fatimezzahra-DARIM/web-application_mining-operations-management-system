@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WeatherController;
+use App\Http\Controllers\TaskFileController;
 use App\Http\Controllers\GeologistController;
 
 
@@ -162,6 +163,7 @@ Route::middleware([
     Route::get('/geologist/dashboard/miss3', function () {
         return view('template/geologistDashboard/miss3');
     })->name('imiss_dashboard');
+
 });
 // Route::middleware([
 //     'auth:sanctum',
@@ -182,3 +184,5 @@ Route::middleware([
 //     Route::put('/geologists/{id}', [GeologistController::class, 'updateGeologist'])->name('geologists.update');
 //     Route::delete('/geologists/{id}', [GeologistController::class, 'deleteGeologist'])->name('geologists.delete');
 // });
+
+Route::get('/taskfile', [TaskFileController::class, 'index']);
