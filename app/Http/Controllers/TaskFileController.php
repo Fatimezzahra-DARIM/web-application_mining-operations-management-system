@@ -15,9 +15,22 @@ class TaskFileController extends Controller
     public function index()
     {
         $taskFiles = TaskFile::all();
-        return view('task_files.index', ['tasks'=>$tasks]);
+        return view('template/adminDashboard/contents/taskFile', ['taskFiles'=>$taskFiles]);
+        //  view('taskFile.index'
     }
 
+    public function downloadFile(TaskFile $taskFile)
+    {
+        $fileContents = file_get_contents($taskFile->file_path);
+
+        $response = response($fileContents);
+        $response->header('Content-Type', 'application/pdf');
+        $response->header('Content-Disposition', 'inline; filename="' . $taskFile->file_name . '"');
+
+        return $response;
+
+        // return response()->download($taskFile->file_path);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -53,8 +66,10 @@ class TaskFileController extends Controller
         $pdfName = $pdf->getClientOriginalName();
         $pdfPath = $pdf->storeAs('pdfs', $pdfName);
 
+        $url = asset('storage/app/' . $pdfPath);
+
         // Update the task with the PDF file path
-        $taskFile->file_path = $pdfPath;
+        $taskFile->file_path = $url;
         $taskFile->save();
 
         // $taskFile->save();
@@ -123,9 +138,10 @@ class TaskFileController extends Controller
     {
         $taskFile->delete();
 
-        return redirect()->route('task_files.index')->with('success', 'Task file deleted successfully.');
+        return redirect()->back()->with('success', 'Task deleted successfully');;
 
     }
+
 }
 // public function index(){
 //     dd(TaskFile::with('user','task')->get());

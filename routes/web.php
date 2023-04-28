@@ -56,17 +56,14 @@ Route::get('/', function () {
 //         return view('template/adminDashboard/contents/dashboard');
 //     })->name('admin_dashboard');
 // });
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
     'role:admin' // Only users with the 'admin' role can access these routes
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        // dd('hi');
-                return view('template/adminDashboard/contents/dashboard');
-                // return view('dashboard');
-            })->name('dashboard');
+
     Route::get('/admin', function () {
         return view('template/adminDashboard/layout/index');
     })->name('admin');
@@ -74,6 +71,9 @@ Route::middleware([
     Route::get('/admin/dashboard', function () {
         return view('template/adminDashboard/contents/dashboard');
     })->name('admin_dashboard');
+    Route::get('/download/{taskFile}', [TaskFileController::class,'downloadFile'])->name('downloadFile');
+
+    Route::get('/admin/taskFiles', [TaskFileController::class,'index'])->name('taskFile');
     Route::put('/update-role', [AdminController::class, 'updateRole'])->name('updateRole');
     Route::get('/manage', [GeologistController::class,'index'])->name('manage');
 
@@ -137,10 +137,17 @@ Route::middleware([
     })->name('imiss_dashboard');
     Route::post('/files', [TaskFileController::class, 'store'])->name('files.store');
     Route::put('taskFile/{taskFile}', [TaskFileController::class, 'update'])->name('files.update');
+    Route::delete('/taskFile/{taskFile}', [TaskFileController::class, 'destroy'])->name('files.destroy');
 
 
 
 });
+
+Route::get('/dashboard', function () {
+    // dd('hi');
+            return view('template/adminDashboard/contents/dashboard');
+            // return view('dashboard');
+        })->name('dashboard');
 
 
 // Route::get('/taskfile', [TaskFileController::class, 'index']);

@@ -1,11 +1,15 @@
 @extends('.template.adminDashboard.layout.index')
-@section('title')  Task File
+
+@section('title') Manage File Task
+
 @endsection
+
+
 @section('content')
 {{-- @dd($tasks) --}}
 {{-- @dd($tasks[3]->taskFile[0]) --}}
 <h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">
-    File Task
+   Manage File Task
 </h1>
 <!-- Main modal -->
 <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -123,54 +127,42 @@
     <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
         <thead>
             <tr>
-                <th data-priority="1">Title</th>
-                <th data-priority="2">Description</th>
-                <th data-priority="3">Assign To</th>
-                <th data-priority="4">Add File</th>
-                <th data-priority="5">Status</th>
-                <th data-priority="6">Update File</th>
-                <th data-priority="7">Delete File</th>
+                <th data-priority="1">Description</th>
+                <th data-priority="2">File Uploaded</th>
+                <th data-priority="3">Accept File</th>
+                <th data-priority="4">Redo it</th>
+
             </tr>
         </thead>
         <tbody>
-            @php
-            // dd($tasks[0]->taskFile);
-            // dd($tasks[1]->taskFile);
-            // dd($tasks[0]->taskFile);
-            // dd();
-            @endphp
-            @foreach ($tasks as $task)
+            @foreach ($taskFiles as $taskFile)
+
 
             <tr>
-                <td>{{ $task->task_name }}</td>
-                <td>{{ $task->task_description }}</td>
+                <td>{{$taskFile->description}}</td>
                 <td>
-                    @foreach ($task->users as $user)
-                        <div>{{$user->name}}</div>
-                        <h1></h1>
-                    @endforeach
-
+                    <a href="{{ route('downloadFile', ['taskFile' => $taskFile->id]) }}" class="btn btn-primary">Download File</a>
                 </td>
-                <td> <button onclick="generateTaskId({{$task->id}})" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Add File</button></td>
-                <td><button type="" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Task doing</button></td>
-                @foreach ($task->taskFile as $taskFile)
-                <td class="px-5 py-5 border-b border-gray-200  text-sm">
-                    @if($task->taskFile->count() > 0)
-                            <a href="#" class="text-indigo-600 hover:text-indigo-900"><button
-                            onclick="prepareToUpdated({{$taskFile->id}},`{{$taskFile->description}}`,`{{$taskFile->file_path}}`)" data-modal-target="authentication-modal1" data-modal-toggle="authentication-modal1" type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Update File</button></a>
-                        @endif
-                    </td>
-                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
-                        <a href="#" class="text-red-600 hover:text-red-900"><form action="{{ route('files.destroy', $taskFile->id) }}" method="POST">
+
+                <td class="px-5 py-5 border-b border-gray-200 text-sm">
+
+                        <a href="#" class="text-red-600 hover:text-red-900"><form action="" method="POST">
                             @csrf
-                            @method('DELETE')
-                            <button type="submit" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Delete File</button>
+
+                            <button type="submit" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Accept</button>
                         </form></a>
                     </td>
-                    @endforeach
-            </tr>
-             @endforeach
+                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
+                        <a href="#" class="text-red-600 hover:text-green-900"><form action="" method="POST">
+                            @csrf
 
+                            <button type="submit" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Redo It</button>
+                        </form></a>
+                    </td>
+
+            </tr>
+
+            @endforeach
         </tbody>
 
     </table>
