@@ -68,9 +68,10 @@ Route::middleware([
         return view('template/adminDashboard/layout/index');
     })->name('admin');
 
-    Route::get('/admin/dashboard', function () {
-        return view('template/adminDashboard/contents/dashboard');
-    })->name('admin_dashboard');
+    // Route::get('/admin/dashboard',  [AdminController::class,'index'])->name('admin_dashboard');
+    // Route::get('/admin/dashboard', function () {
+    //     return view('template/adminDashboard/contents/dashboard');
+    // })->name('admin_dashboard');
     Route::get('/download/{taskFile}', [TaskFileController::class,'downloadFile'])->name('downloadFile');
 
     Route::get('/admin/taskFiles', [TaskFileController::class,'index'])->name('taskFile');
@@ -143,11 +144,8 @@ Route::middleware([
 
 });
 
-Route::get('/dashboard', function () {
-    // dd('hi');
-            return view('template/adminDashboard/contents/dashboard');
-            // return view('dashboard');
-        })->name('dashboard');
+Route::get('/dashboard', [AdminController::class,'index'])->name('dashboard');
 
 
 // Route::get('/taskfile', [TaskFileController::class, 'index']);
+Route::get('/admin/dashboard',  [AdminController::class,'index'])->name('admin_dashboard');

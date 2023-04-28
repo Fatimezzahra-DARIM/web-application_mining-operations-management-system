@@ -167,12 +167,12 @@
                 <input type="text" name="search" id="search" class="w-full border-gray-400 focus:border-indigo-500 focus:outline-none rounded-md p-2" placeholder="Search...">
             </div>
             <div class="overflow-x-auto">
-                <div class="inline-block min-w-full overflow-hidden">
+                <div class="inline-block min-w-full overflow-hidden" id="table">
                     <table class="min-w-full leading-normal">
                         <thead>
                             <tr>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Title</th>
-                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Description</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider" >Description</th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Admin Name</th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Status</th>
                                 <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Update Task</th>
@@ -301,6 +301,16 @@ $(document).ready(function() {
 
         };
     </script>
+    <script>
+        $(document).ready(function() {
+          $('#search').on('keyup', function() {
+            var value = $(this).val().toLowerCase();
+            $('#table tr').filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+      </script>
 
 
 

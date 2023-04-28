@@ -21,7 +21,7 @@
     @include('.template.adminDashboard.layout.navbar')
     @include('.template.adminDashboard.layout.sidebar')
 
-    <div class="mt-16 sm:ml-64">
+    <div class="mt-16 sm:ml-64 ml-6">
         <div class="rounded-lg dark:border-gray-700">
             @yield('content')
         </div>
@@ -29,6 +29,6 @@
 
 
     @include('.template.adminDashboard.layout.footer')
-  
+
 </body>
 </html>

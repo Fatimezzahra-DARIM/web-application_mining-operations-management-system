@@ -10,8 +10,10 @@
 <h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-6 text-xl md:text-2xl">
     Weather Listing in 2M cities
 </h1>
+<div class="p-8">
+ <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button" class=" text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">Add Task</button>
+</div>
 
- <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Add Task</button>
  <!-- Main modal -->
  <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
      <div class="relative w-full max-w-md max-h-full">
@@ -55,7 +57,7 @@
                         </div>
                           <div class="py-6" id="pargraphForms">
                              <div id="row1">
-                                 <label for="small-input" class="block mb-3 mt-2 text-sm font-medium text-gray-900 dark:text-white">pargaraph 1</label>
+                                 <label for="small-input" class="block mb-3 mt-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
                                 <textarea name="description" class="w-full block rounded-lg h-56 overflow-x-hidden overflow-y-auto border border-gray-300 bg-gray-50">
                                  </textarea>
                              </div>
